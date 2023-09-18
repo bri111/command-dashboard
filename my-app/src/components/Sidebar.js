@@ -13,6 +13,7 @@ const classNames = (...className) => {
 
 const Sidebar = () => {
 
+  
   const segment = useSelectedLayoutSegment();
   const sidebarOptions = [
     {name: 'Dashboard', href:'/dashboard', icon: AdjustmentsHorizontalIcon, current: segment === null},
