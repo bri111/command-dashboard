@@ -2,5 +2,8 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.2"
+  },
+  "devDependencies": {
+    "daisyui": "^3.9.2"
   }
 }

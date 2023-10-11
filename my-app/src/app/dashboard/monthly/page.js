@@ -28,7 +28,7 @@ const Page = () => {
           </thead>
           <tbody>
           {tableStuff.row.map((row, index) => (
-            <tr key={row} className={classNames(index % 2 === 0 ? "bg-gray-400" : "bg-gray-200",  "bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-center text-black")}>
+            <tr key={row} className={classNames(index % 2 === 0 ? "bg-gray-400" : "bg-gray-200",  "border-b dark:bg-gray-800 dark:border-gray-700 text-center text-black")}>
               {row.map((rowStuff) => (
                 <td key={rowStuff}>{rowStuff}</td>
               ))}

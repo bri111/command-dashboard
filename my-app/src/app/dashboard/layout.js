@@ -3,9 +3,9 @@ import Sidebar from '@/components/Sidebar';
 
 const layout = (props) => {
   return (
-    <div className="mx-auto flex flex-row">
-      <Sidebar />
-      <div className="flex-1 flex-col ml-64">
+    <div className="flex flex-row">
+        <Sidebar />
+      <div className="flex-grow overflow-y-auto">
         {props.children}
       </div>
 

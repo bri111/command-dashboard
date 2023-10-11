@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { EnvelopeOpenIcon } from '@heroicons/react/24/solid';
-import { Bars3Icon, AdjustmentsHorizontalIcon, ChartBarIcon, CalendarIcon, PaperClipIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, AdjustmentsHorizontalIcon, ChartBarIcon, CalendarIcon, PaperClipIcon, ChevronDoubleLeftIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 
@@ -10,46 +10,66 @@ const classNames = (...className) => {
   return className.filter(Boolean).join(' ');
 }
 
+const closeCheckboxes = (expand) => {
+  document.querySelectorAll("input[type='checkbox']").forEach(e => {
+    e.checked = false;
+    e.disabled = expand;
+  });
+}
 
 const Sidebar = () => {
 
 
   const segment = useSelectedLayoutSegment();
+  const [expand, setExpand] = useState(true);
   const sidebarOptions = [
-    {name: 'Dashboard', href:'/dashboard', icon: AdjustmentsHorizontalIcon, current: segment === null},
-    {name: 'Daily', href:'/dashboard/daily', icon: ChartBarIcon, current: segment === 'analytics'},
-    {name: 'Weekly', href:'/dashboard/weekly', icon: CalendarIcon, current: segment === 'analytics'},
-    {name: 'Monthly', href:'/dashboard/monthly', icon: PaperClipIcon, current: segment === 'analytics'},
-    {name: 'Daily', href:'/dashboard/daily', icon: ChartBarIcon, current: segment === 'analytics'},
+    // {name: 'Dashboard', href:'/dashboard', icon: AdjustmentsHorizontalIcon, current: segment === null, subcategory: ['CG PERSTAT', 'SME', 'TF-E']},
+    {name: 'Mission Driven', href:'/dashboard/mission', icon: ChartBarIcon, current: segment === 'mission', subcategory: ['CG PERSTAT', 'SME', 'TF-E']},
+    {name: 'Periodic', href:'/dashboard/periodic', icon: CalendarIcon, current: segment === 'periodic', subcategory: ['Innovations', 'CSO', '9MSC Phonebook', 'OPD / LPD', 'Talent Management', 'Strategic Planning', '5yr Plan']},
+    // {name: 'Monthly', href:'/dashboard/monthly', icon: PaperClipIcon, current: segment === 'monthly', subcategory: ['CG PERSTAT', 'SME', 'TF-E']},
+    {name: 'Fixed', href:'/dashboard/fixed', icon: QuestionMarkCircleIcon, current: segment === 'fixed', subcategory: ['Policies / SOPs', '10-1', 'Mission, Vision, and Priorities', 'Dashboard Instructions', 'ADPASS']},
   ]
   const [isActive, setIsActive] = useState("dashboard");
   console.log(segment)
 
   return (
-    <div className="hidden fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
-      <div className="flex grow flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">
-        <div className="flex h-16 items-center">
-          <a href="/dashboard" className="text-3xl font-bold mr-1">Commanders Dashboard</a  >
-        </div>
+    <div className={classNames(expand ? "w-1/5" : "w-12", "top-0 sticky left-0 h-screen overflow-auto flex flex-col bg-white border-r-2 shadow-2 transition-all duration-500")}>
+      {/*<div className="flex flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">*/}
+      <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
         <nav className="flex flex-1 flex-col">
-          <ul roles="list" className="flex flex-1 flex-col gap-y-7">
-            <li>
-              <ul roll="list" className="-mx-2 space-y-l">
+          <ul roles="list" className="flex flex-1 flex-col ">
+              {/*<ul roll="list" className="mt-2">*/}
                 {
-                  sidebarOptions.map((option) => (
-                    <li key={option.name}>
-                      <Link onClick={() => setIsActive(option.name)} href={option.href} className={classNames(option.current ? "bg-gray-700 text-white" : "text-gray-400 hover:text-white hover:bg-gray-700", "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semi-bold duration-200 ease-in ease-out")}>
-                        <option.icon className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0 duration-200 ease-in ease-out" />
-                        {option.name}
-                      </Link>
-                    </li>
-                  ))
                 }
-              </ul>
-            </li>
+            {
+              sidebarOptions.map((option) => (
+                <li key={option.name} className="collapse collapse-arrow bg-white rounded-none">
+                  <input className="h-2 hover:bg-gray-700 hover:text-white" type="checkbox" />
+                  <div className={`${option.current ? "bg-gray-700 text-white" : "text-black"} collapse-title text-xl font-medium flex text-sm font-semi-bold ps-2 hover:bg-gray-700 hover:text-white`}>
+                    <Link className={`z-10 whitespace-nowrap group flex h-full w-full text-sm align-center`} href={option.href}>
+                      <option.icon className="me-2 text-gray-300 group-hover:text-white h-6 w-6 duration-200 ease-in ease-out" />
+                      <div className="flex justify-center items-center">
+                        {expand ? option.name : ""}
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="collapse-content text-sm">
+                    <ul className="menu menu-sm">
+                    {option.subcategory.map((e) => (
+                        <li key={e}>
+                          <Link key={e} href={`${option.href}/`}>{e}</Link>
+                        </li>
+                    ))}
+                    </ul>
+                  </div>
+                </li>
+
+              ))
+            }
           </ul>
+            <ChevronDoubleLeftIcon className={classNames(expand ? "rotate-0" : "rotate-180", "h-8 w-8 transition-all duration-500")} onClick={() => { setExpand(!expand); closeCheckboxes(expand)}}/>
         </nav>
-      </div>
+      {/*</div>*/}
     </div>
   );
 }
