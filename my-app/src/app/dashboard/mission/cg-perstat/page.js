@@ -50,6 +50,7 @@ const Page = () => {
 
   return (
     <div className="container h-screen p-4">
+      <h1>HELLLo</h1>
       <div className="text-center font-bold">Mission Driven</div>
       <div className="row">
           <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
