@@ -40,36 +40,38 @@ const Page = () => {
 
   ]
 
-
   // const selectedTab = (e) => {
   //   console.log(e);
   // }
 
   const [selectedTab, setSelectedTab] = useState(0);
 
-
   return (
-    <div className="container h-screen p-4">
-      <div className="text-center font-bold">Mission Driven</div>
+    <div className="container h-screen pt-8">
+      <div className="text-center font-bold py-4">
+        <h1 className='text-4xl'>
+          Mission Driven
+        </h1>
+      </div>
       <div className="row">
-          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-            <div className="card-body">
-              <h2 className="card-title">CG PERSTAT</h2>
-              <p>A nice summary</p>
-            </div>
+        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+          <div className="card-body">
+            <h2 className="card-title">CG</h2>
+            <p>A nice summary</p>
           </div>
-          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-            <div className="card-body">
-              <h2 className="card-title">SME</h2>
-              <p>SME summary</p>
-            </div>
+        </div>
+        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+          <div className="card-body">
+            <h2 className="card-title">SME</h2>
+            <p>SME summary</p>
           </div>
-          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-            <div className="card-body">
-              <h2 className="card-title">TF-E</h2>
-              <p>SME summary</p>
-            </div>
+        </div>
+        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+          <div className="card-body">
+            <h2 className="card-title">TF-E</h2>
+            <p>SME summary</p>
           </div>
+        </div>
       </div>
       <div className="row mt-5">
         {/*<table className="table">*/}

@@ -24,8 +24,13 @@ const Sidebar = () => {
     // {name: 'Dashboard', href:'/dashboard', icon: AdjustmentsHorizontalIcon, current: segment === null, subcategory: ['CG PERSTAT', 'SME', 'TF-E']},
     {name: 'Mission Driven', href:'/dashboard/mission', icon: ChartBarIcon, current: segment === 'mission', subcategory: [
         {
-          name: 'CG PERSTAT',
-          href: 'cg-perstat',
+          name: 'CG',
+          href: 'cg',
+          target: '_self',
+        },
+        {
+          name: 'DRU CDR',
+          href: 'dru-cdr',
           target: '_self',
         },
         {
@@ -109,9 +114,9 @@ const Sidebar = () => {
   return (
     <div className={classNames(expand ? "w-1/5" : "w-12", "top-0 sticky left-0 h-screen overflow-auto flex flex-col bg-white border-r-2 shadow-2 transition-all duration-500")}>
       {/*<div className="flex flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">*/}
-      <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
+      <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "pt-8 pb-6 transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
         <nav className="flex flex-1 flex-col">
-          <ul roles="list" className="flex flex-1 flex-col ">
+          <ul roles="list" className="flex flex-1 flex-col">
             {
               sidebarOptions.map((option) => (
                 <li key={option.name} className="collapse collapse-arrow bg-white rounded-none">
