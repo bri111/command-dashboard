@@ -1,13 +1,48 @@
 'use client'
 
 import React, { useState } from 'react';
-import * as d3 from 'd3';
 import PieChart from '@/components/PieChart';
 
 const classNames = (...className) => {
   return className.filter(Boolean).join(' ');
 }
 const Page = () => {
+  let csvData = [];
+  const readFile = () => {
+    console.log('submitted');
+    const file = document.getElementById('csv-file').files[0];
+    const reader = new FileReader();
+    reader.readAsText(file);
+    reader.onload = (e) => {
+      console.log('loaded');
+      const rows = reader.result.split('\r\n');
+      const split = rows.map(e => e.split(new RegExp(',(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))')));
+      // console.log(split);
+      // csvData = split;
+
+      split.forEach((e) => {
+        let key = e[5];
+        // console.log(csvData.some(entry => entry.hasOwnProperty(e[5])));
+
+        if (csvData.some(e => e.name === key) && csvData.length > 0) {
+          csvData[csvData.findIndex(e => e.name === key)].value++;
+        } else {
+          csvData.push({
+            name: e[5],
+            value: 1,
+          });
+        }
+      })
+
+    }
+  }
+  const data = [
+    {name: "mark", value: 3},
+    {name: "jeff", value: 23},
+    {name: "larry", value: 9},
+    {name: "perry", value: 10},
+  ];
+
   const tableStuff = [
     {
       title: "CG PERSTAT",
@@ -43,24 +78,21 @@ const Page = () => {
   ]
 
 
-  // const selectedTab = (e) => {
-  //   console.log(e);
-  // }
-
   const [selectedTab, setSelectedTab] = useState(0);
 
 
 
   return (
     <div className="container h-screen p-4">
-      <input type='file' accept='.text/csv'/>
+      <input id='csv-file' type='file' accept='text/csv'/>
+      <button type='button' onClick={() => readFile()}>Submit</button>
       <div className="text-center font-bold">Mission Driven</div>
       <div className="row">
           <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
             <div className="card-body">
               <h2 className="card-title">CG PERSTAT</h2>
               <p>A nice summary</p>
-              <PieChart />
+              <PieChart width={400} height={400} data={csvData}/>
             </div>
           </div>
           <div className="card card-side bg-base-100 shadow-xl h-screen m-2">

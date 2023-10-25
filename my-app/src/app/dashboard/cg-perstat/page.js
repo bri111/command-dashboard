@@ -6,6 +6,8 @@ const classNames = (...className) => {
   return className.filter(Boolean).join(' ');
 }
 const Page = () => {
+
+
   const tableStuff = [
     {
       title: "CG PERSTAT",
