@@ -17,8 +17,6 @@ const Page = () => {
       console.log('loaded');
       const rows = reader.result.split('\r\n');
       const split = rows.map(e => e.split(new RegExp(',(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))')));
-      // console.log(split);
-      // csvData = split;
 
       split.forEach((e) => {
         let key = e[5];
