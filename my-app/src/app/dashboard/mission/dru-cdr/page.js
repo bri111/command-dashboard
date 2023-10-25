@@ -74,7 +74,6 @@ const Page = () => {
           </div>
         </div>
       </div>
-    </div>
     // <div className="bg-white px-6 py-24 sm:py-32 lg:px-8 h-screen">
     //   <div className="mx-auto max-w2xl text-center">
     //     Mission
