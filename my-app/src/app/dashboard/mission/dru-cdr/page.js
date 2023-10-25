@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react';
+import * as d3 from 'd3';
+import PieChart from '@/components/PieChart';
 
 const classNames = (...className) => {
   return className.filter(Boolean).join(' ');
@@ -47,17 +49,16 @@ const Page = () => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   return (
-    <div className="container h-screen pt-8">
-      <div className="text-center font-bold py-4">
-        <h1 className='text-4xl'>
-          Mission Driven
-        </h1>
-      </div>
+    <div className="container h-screen p-4">
+      <input type='file' accept='.text/csv'/>
+      <div className="text-center font-bold">Mission Driven</div>
       <div className="row">
-        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-          <div className="card-body">
-            <h2 className="card-title">DRU CDR</h2>
-            <p>A nice summary</p>
+          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+            <div className="card-body">
+              <h2 className="card-title">CG PERSTAT</h2>
+              <p>A nice summary</p>
+              <PieChart />
+            </div>
           </div>
         </div>
         <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
@@ -72,27 +73,6 @@ const Page = () => {
             <p>SME summary</p>
           </div>
         </div>
-      </div>
-      <div className="row mt-5">
-        {/*<table className="table">*/}
-        {/*  <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">*/}
-        {/*  <tr>*/}
-        {/*    {tableStuff.header.map((e, index) => (*/}
-        {/*      <th key={e} scope="col" className={"px-6 py3 text-center"}>{e}</th>*/}
-        {/*    ))}*/}
-        {/*  </tr>*/}
-        {/*  </thead>*/}
-        {/*  <tbody>*/}
-        {/*  {tableStuff.row.map((row, index) => (*/}
-        {/*    <tr key={row} className={classNames(index % 2 === 0 ? "bg-gray-400" : "bg-gray-200",  "border-b dark:bg-gray-800 dark:border-gray-700 text-center text-black")}>*/}
-        {/*      {row.map((rowStuff) => (*/}
-        {/*        <td key={rowStuff}>{rowStuff}</td>*/}
-        {/*      ))}*/}
-        {/*    </tr>*/}
-        {/*  ))}*/}
-        {/*  </tbody>*/}
-        {/*</table>*/}
-
       </div>
     </div>
     // <div className="bg-white px-6 py-24 sm:py-32 lg:px-8 h-screen">
