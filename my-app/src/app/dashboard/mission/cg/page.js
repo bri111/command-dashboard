@@ -18,7 +18,7 @@ const Page = () => {
     {
       title: "G1",
       id: "g1",
-      content: (<CG_G1/>),
+      content: (<CG_G1 />),
     },
     {
       title: "G4",
@@ -55,22 +55,25 @@ const Page = () => {
           selectTab={() => handleTabChange("main")}
           active={tab === "main"}
         >
-          {" "}
-          CG Main{" "}
+          {" "}CG Main{" "}
         </TabButton>
         <TabButton
           selectTab={() => handleTabChange("g1")}
           active={tab === "g1"}
         >
-          {" "}
-          G1{" "}
+          {" "}G1{" "}
         </TabButton>
         <TabButton
           selectTab={() => handleTabChange("g4")}
           active={tab === "g4"}
         >
-          {" "}
-          G4{" "}
+          {" "}G4{" "}
+        </TabButton>
+        <TabButton
+          selectTab={() => handleTabChange("g8")}
+          active={tab === "g8"}
+        >
+          {" "}G8{" "}
         </TabButton>
       </div>
       <div className="row">
