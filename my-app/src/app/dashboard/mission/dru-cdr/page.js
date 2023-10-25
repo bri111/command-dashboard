@@ -77,10 +77,7 @@ const Page = () => {
 
   ]
 
-
   const [selectedTab, setSelectedTab] = useState(0);
-
-
 
   return (
     <div className="container h-screen p-4">
@@ -90,25 +87,25 @@ const Page = () => {
       <div className="row">
           <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
             <div className="card-body">
-              <h2 className="card-title">CG PERSTAT</h2>
+              <h2 className="card-title">DRU CDR</h2>
               <p>A nice summary</p>
               <PieChart width={400} height={400} data={csvData}/>
             </div>
           </div>
-          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-            <div className="card-body">
-              <h2 className="card-title">SME</h2>
-              <p>SME summary</p>
-            </div>
+        </div>
+        {/* <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+          <div className="card-body">
+            <h2 className="card-title">SME</h2>
+            <p>SME summary</p>
           </div>
-          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-            <div className="card-body">
-              <h2 className="card-title">TF-E</h2>
-              <p>SME summary</p>
-            </div>
+        </div>
+        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+          <div className="card-body">
+            <h2 className="card-title">TF-E</h2>
+            <p>SME summary</p>
           </div>
+        </div> */}
       </div>
-    </div>
     // <div className="bg-white px-6 py-24 sm:py-32 lg:px-8 h-screen">
     //   <div className="mx-auto max-w2xl text-center">
     //     Mission

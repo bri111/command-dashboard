@@ -22,10 +22,16 @@ const Sidebar = () => {
   const [expand, setExpand] = useState(true);
   const sidebarOptions = [
     // {name: 'Dashboard', href:'/dashboard', icon: AdjustmentsHorizontalIcon, current: segment === null, subcategory: ['CG PERSTAT', 'SME', 'TF-E']},
-    {name: 'Mission Driven', href:'/dashboard/mission', icon: ChartBarIcon, current: segment === 'mission', subcategory: [
+    {
+      name: 'Mission Driven', href: '/dashboard/mission', icon: ChartBarIcon, current: segment === 'mission', subcategory: [
         {
-          name: 'CG PERSTAT',
-          href: 'cg-perstat',
+          name: 'CG',
+          href: 'cg',
+          target: '_self',
+        },
+        {
+          name: 'DRU CDR',
+          href: 'dru-cdr',
           target: '_self',
         },
         {
@@ -37,11 +43,18 @@ const Sidebar = () => {
           name: 'TF-E',
           href: 'tf-e',
           target: '_self',
-        }]},
-    {name: 'Periodic', href:'/dashboard/periodic', icon: CalendarIcon, current: segment === 'periodic', subcategory: [
+        }]
+    },
+    {
+      name: 'Periodic', href: '/dashboard/periodic', icon: CalendarIcon, current: segment === 'periodic', subcategory: [
         {
-          name : 'Innovations',
-          href: 'innovations',
+          name: '5yr Plan',
+          href: 'plan',
+          target: '_self'
+        },
+        {
+          name: '9MSC Phonebook',
+          href: 'phonebook',
           target: '_self',
         },
         {
@@ -50,8 +63,8 @@ const Sidebar = () => {
           target: '_self',
         },
         {
-          name: '9MSC Phonebook',
-          href: 'phonebook',
+          name: 'Innovations',
+          href: 'innovations',
           target: '_self',
         },
         {
@@ -60,36 +73,28 @@ const Sidebar = () => {
           target: '_self',
         },
         {
-          name: 'Talent Management',
-          href: 'google.com',
-          target: '_blank',
-        },
-        {
           name: 'Strategic Planning',
           href: 'strategic-planning',
           target: '_self',
         },
         {
-          name: '5yr Plan',
-          href: 'plan',
-          target: '_self'
-        }]},
+          name: 'Talent Management',
+          href: 'google.com',
+          target: '_blank',
+        }]
+    },
 
     // {name: 'Monthly', href:'/dashboard/monthly', icon: PaperClipIcon, current: segment === 'monthly', subcategory: ['CG PERSTAT', 'SME', 'TF-E']},
-    {name: 'Fixed', href:'/dashboard/fixed', icon: QuestionMarkCircleIcon, current: segment === 'fixed', subcategory: [
-        {
-          name: 'Policies / SOPs',
-          href: 'policies-sop',
-          target: '_self',
-        },
+    {
+      name: 'Fixed', href: '/dashboard/fixed', icon: QuestionMarkCircleIcon, current: segment === 'fixed', subcategory: [
         {
           name: '10-1',
           href: '10-1',
           target: '_self',
         },
         {
-          name: 'Mission, Vision, and Priorities',
-          href: 'mission-vision-priorities',
+          name: 'ADPASS',
+          href: 'adpass',
           target: '_self',
         },
         {
@@ -98,10 +103,16 @@ const Sidebar = () => {
           target: '_self',
         },
         {
-          name: 'ADPASS',
-          href: 'adpass',
+          name: 'Mission, Vision, and Priorities',
+          href: 'mission-vision-priorities',
           target: '_self',
-        }]},
+        },
+        {
+          name: 'Policies / SOPs',
+          href: 'policies-sop',
+          target: '_self',
+        }]
+    },
   ]
   const [isActive, setIsActive] = useState("dashboard");
   console.log(segment)
@@ -109,37 +120,37 @@ const Sidebar = () => {
   return (
     <div className={classNames(expand ? "w-1/5" : "w-12", "top-0 sticky left-0 h-screen overflow-auto flex flex-col bg-white border-r-2 shadow-2 transition-all duration-500")}>
       {/*<div className="flex flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">*/}
-      <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
-        <nav className="flex flex-1 flex-col">
-          <ul roles="list" className="flex flex-1 flex-col ">
-            {
-              sidebarOptions.map((option) => (
-                <li key={option.name} className="collapse collapse-arrow bg-white rounded-none">
-                  <input className="h-1 hover:bg-gray-700 hover:text-white" type="checkbox" />
-                  <div className={`${option.current ? "bg-gray-700 text-white" : "text-black"} collapse-title text-xl font-medium flex text-sm font-semi-bold ps-2 hover:bg-gray-700 hover:text-white`}>
-                    <Link className={`z-10 whitespace-nowrap group flex h-full w-full text-sm align-center`} href={option.href}>
-                      <option.icon className="me-2 text-gray-300 group-hover:text-white h-6 w-6 duration-200 ease-in ease-out" />
-                      <div className="flex justify-center items-center">
-                        {expand ? option.name : ""}
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="collapse-content text-sm">
-                    <ul className="menu menu-sm">
+      <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "pt-8 pb-6 transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
+      <nav className="flex flex-1 flex-col">
+        <ul roles="list" className="flex flex-1 flex-col">
+          {
+            sidebarOptions.map((option) => (
+              <li key={option.name} className="collapse collapse-arrow bg-white rounded-none">
+                <input className="h-1 hover:bg-gray-700 hover:text-white" type="checkbox" />
+                <div className={`${option.current ? "bg-gray-700 text-white" : "text-black"} collapse-title text-xl font-medium flex text-sm font-semi-bold ps-2 hover:bg-gray-700 hover:text-white`}>
+                  <Link className={`z-10 whitespace-nowrap group flex h-full w-full text-sm align-center`} href={option.href}>
+                    <option.icon className="me-2 text-gray-300 group-hover:text-white h-6 w-6 duration-200 ease-in ease-out" />
+                    <div className="flex justify-center items-center">
+                      {expand ? option.name : ""}
+                    </div>
+                  </Link>
+                </div>
+                <div className="collapse-content text-sm">
+                  <ul className="menu menu-sm">
                     {option.subcategory.map((e) => (
-                        <li key={e.name}>
-                          <Link key={e.name} href={`${option.href}/${e.href}`} target={e.target}>{e.name}</Link>
-                        </li>
+                      <li key={e.name}>
+                        <Link key={e.name} href={`${option.href}/${e.href}`} target={e.target}>{e.name}</Link>
+                      </li>
                     ))}
-                    </ul>
-                  </div>
-                </li>
+                  </ul>
+                </div>
+              </li>
 
-              ))
-            }
-          </ul>
-            <ChevronDoubleLeftIcon className={classNames(expand ? "rotate-0" : "rotate-180", "h-8 w-8 transition-all duration-500")} onClick={() => { setExpand(!expand); closeCheckboxes(expand)}}/>
-        </nav>
+            ))
+          }
+        </ul>
+        <ChevronDoubleLeftIcon className={classNames(expand ? "rotate-0" : "rotate-180", "h-8 w-8 transition-all duration-500")} onClick={() => { setExpand(!expand); closeCheckboxes(expand) }} />
+      </nav>
       {/*</div>*/}
     </div>
   );

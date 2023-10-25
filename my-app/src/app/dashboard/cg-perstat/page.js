@@ -10,7 +10,7 @@ const Page = () => {
 
   const tableStuff = [
     {
-      title: "CG PERSTAT",
+      title: "CG",
       header: ['column1', 'column2', 'column3', 'column4',],
       row: [
         ['CG PERSTAT stuff1', 'CG PERSTAT stuff2', 'CG PERSTAT stuff3', 'CG PERSTATstuff4'],

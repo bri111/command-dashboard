@@ -49,12 +49,12 @@ const Page = () => {
 
 
   return (
-    <div className="container h-screen p-4">
-      <div className="text-center font-bold">Mission Driven</div>
+    <div className="container h-screen pt-8">
+      <div className="text-4xl text-center font-bold py-4">Mission Driven</div>
       <div className="row">
           <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
             <div className="card-body">
-              <h2 className="card-title">CG PERSTAT</h2>
+              <h2 className="card-title">CG</h2>
               <p>A nice summary</p>
             </div>
           </div>
@@ -67,7 +67,7 @@ const Page = () => {
           <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
             <div className="card-body">
               <h2 className="card-title">TF-E</h2>
-              <p>SME summary</p>
+              <p>TF-E summary</p>
             </div>
           </div>
       </div>
