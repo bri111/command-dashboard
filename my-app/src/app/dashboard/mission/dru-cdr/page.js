@@ -51,17 +51,17 @@ const Page = () => {
   return (
     <div className="container h-screen p-4">
       <input type='file' accept='.text/csv'/>
-      <div className="text-center font-bold">Mission Driven</div>
+      <div className="text-4xl text-center font-bold">DRU CDR</div>
       <div className="row">
           <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
             <div className="card-body">
-              <h2 className="card-title">CG PERSTAT</h2>
+              <h2 className="card-title">DRU CDR</h2>
               <p>A nice summary</p>
               <PieChart />
             </div>
           </div>
         </div>
-        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+        {/* <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
           <div className="card-body">
             <h2 className="card-title">SME</h2>
             <p>SME summary</p>
@@ -72,7 +72,7 @@ const Page = () => {
             <h2 className="card-title">TF-E</h2>
             <p>SME summary</p>
           </div>
-        </div>
+        </div> */}
       </div>
     // <div className="bg-white px-6 py-24 sm:py-32 lg:px-8 h-screen">
     //   <div className="mx-auto max-w2xl text-center">
