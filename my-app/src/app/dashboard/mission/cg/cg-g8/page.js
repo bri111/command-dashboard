@@ -11,6 +11,7 @@ export const CG_G8 = () => {
   let title = "";
   let dataArray = [];
   let cleanData = [];
+  let slider = 1;
 
   const [values, setValues] = useState([]);
 
@@ -42,7 +43,7 @@ export const CG_G8 = () => {
       labels = labels.slice(1);
     }
 
-    ADOS = values[1];
+    ADOS = values[slider];
     if (ADOS) {
       ADOS = ADOS.slice(1);
       for (let a = 0; a < ADOS.length; a++) {
