@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model mytable {
+  id                     Int     @id @default(autoincrement())
+  unitidentificationcode String? @db.VarChar(20)
+  linnumber              String? @db.VarChar(20)
+  adminnum               String? @db.VarChar(30)
+  materialdescription    String? @db.VarChar(40)
+  modelnumber            String? @db.VarChar(50)
+  operationalstatus      String? @db.VarChar(10)
+  equipmentstate         String? @db.VarChar(20)
+  equipment              Int?
+  equipmentcategory      String? @db.VarChar(1)
+  serialnumber           String? @db.VarChar(30)
+  registrationnumber     String? @db.VarChar(20)
+  material               Int?
+  workcenter             String? @db.VarChar(20)
+  storagelocation        String? @db.VarChar(8)
+  functionallocation     String? @db.VarChar(20)
+  userstatus             String? @db.VarChar(25)
+  count                  Int
+  remark                 String? @db.VarChar(100)
+}
+
+model test {
+  id   Int     @id @default(autoincrement())
+  name String? @db.VarChar(10)
+}
+
+
+model User {
+  id    Int    @id @default(autoincrement())
+  name  String
+  posts Post[]
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  published Boolean @default(true)
+  authorId  Int
+  author    User    @relation(fields: [authorId], references: [id])
+}

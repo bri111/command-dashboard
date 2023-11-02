@@ -47,8 +47,6 @@ const PieChart = ({width, height, data}) => {
   const svgRef = useRef();
 
   useEffect(() => {
-    console.log('fd')
-    console.log(help)
     console.log(data);
     const w = 500;
     const h = 500;
@@ -68,14 +66,32 @@ const PieChart = ({width, height, data}) => {
       .join('path')
       .attr('d', arcGenerator)
       .attr('fill', d => color(d.value))
-      .style('opacity', 0.7);
+      .style('opacity', 0.7)
+      .on('mouseover', (e, i) => {
+        console.log('who');
+        d3.select(this).transition()
+          .style('opacity', '.2').duration('50');
+      })
+      .on('mouseout', (e, i) => {
+        console.log('exit');
+        d3.select(this).transition()
+          .attr('opacity', '1').duration('50');
+      })
+    ;
 
     svg.selectAll()
+      .enter()
       .data(formattedData)
       .join('text')
       .text(d => d.data.name)
       .attr('transform', d => `translate(${arcGenerator.centroid(d)})`)
-      .style('text-anchor', 'center');
+      .style('text-anchor', 'center')
+      .on('mouseover', (e, i) => {
+        console.log('hello');
+        d3.select(this).transition()
+          .attr('opacity', '.85');
+      });
+
 
   }, [height, width, data, help]);
 
