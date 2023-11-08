@@ -14,19 +14,20 @@ model mytable {
   adminnum               String? @db.VarChar(30)
   materialdescription    String? @db.VarChar(40)
   modelnumber            String? @db.VarChar(50)
-  operationalstatus      String? @db.VarChar(10)
-  equipmentstate         String? @db.VarChar(20)
-  equipment              Int?
-  equipmentcategory      String? @db.VarChar(1)
+  operationalstatus      String? @db.VarChar(20)
+  equipmentstatus        String? @db.VarChar(20)
+  equipment              String? @db.VarChar(20)
+  equipmentcategory      String? @db.VarChar(20)
   serialnumber           String? @db.VarChar(30)
   registrationnumber     String? @db.VarChar(20)
-  material               Int?
+  material               String? @db.VarChar(30)
   workcenter             String? @db.VarChar(20)
   storagelocation        String? @db.VarChar(8)
   functionallocation     String? @db.VarChar(20)
   userstatus             String? @db.VarChar(25)
   count                  Int
   remark                 String? @db.VarChar(100)
+  date                   DateTime?
 }
 
 model test {

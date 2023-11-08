@@ -9,8 +9,6 @@ const Page = async () => {
     {name: 'Periodic', href: '/dashboard/periodic'},
     {name: 'Monthly', href: '/dashboard/monthly'},
   ]
-  const data = await prisma.mytable.findMany();
-  console.log(data);
   return (
     <div className="bg-white  px-6 py-24 sm:py-32 lg:px-8 h-screen align-middle">
       <div className="mx-auto max-w2xl flex flex-row justify-evenly">
