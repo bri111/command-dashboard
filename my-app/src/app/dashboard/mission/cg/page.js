@@ -2,7 +2,11 @@
 
 import React, { useState, useTransition } from 'react';
 import TabButton from '@/components/TabButton';
+
+//CG page imports
 import { CG_G1 } from './cg-g1/page';
+import { CG_G8 } from './cg-g8/page';
+import { CG_Medical } from './cg-medical/page';
 
 const classNames = (...className) => {
   return className.filter(Boolean).join(' ');
@@ -28,7 +32,12 @@ const Page = () => {
     {
       title: "G8",
       id: "g8",
-      content: (<p>G8</p>),
+      content: (<CG_G8 />),
+    },
+    {
+      title: "Medical",
+      id: "medical",
+      content: (<CG_Medical />),
     },
   ]
 
