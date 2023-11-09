@@ -115,9 +115,9 @@ export const CG_G8 = () => {
 
   return (
     <div className="container">
-      {/* <div className="text-2xl text-center">
-        G8 Content
-      </div> */}
+      <div className="text-2xl text-center">
+        Budget Data
+      </div>
       <input
         type="file"
         id="file"

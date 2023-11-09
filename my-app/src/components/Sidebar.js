@@ -120,7 +120,7 @@ const Sidebar = () => {
   return (
     <div className={classNames(expand ? "w-1/5" : "w-12", "top-0 sticky left-0 h-screen overflow-auto flex flex-col bg-white border-r-2 shadow-2 transition-all duration-500")}>
       {/*<div className="flex flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">*/}
-      <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "pt-8 pb-6 transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
+      <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "pt-12 pb-6 transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
       <nav className="flex flex-1 flex-col">
         <ul roles="list" className="flex flex-1 flex-col">
           {
@@ -150,6 +150,7 @@ const Sidebar = () => {
           }
         </ul>
         <ChevronDoubleLeftIcon className={classNames(expand ? "rotate-0" : "rotate-180", "h-8 w-8 transition-all duration-500")} onClick={() => { setExpand(!expand); closeCheckboxes(expand) }} />
+        
       </nav>
       {/*</div>*/}
     </div>

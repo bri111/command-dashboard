@@ -84,6 +84,12 @@ const Page = () => {
         >
           {" "}G8{" "}
         </TabButton>
+        <TabButton
+          selectTab={() => handleTabChange("medical")}
+          active={tab === "medical"}
+        >
+          {" "}Medical{" "}
+        </TabButton>
       </div>
       <div className="row">
         <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
@@ -93,18 +99,6 @@ const Page = () => {
             </h2>
           </div>
         </div>
-        {/* <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-          <div className="card-body">
-            <h2 className="card-title">SME</h2>
-            <p>SME summary</p>
-          </div>
-        </div>
-        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-          <div className="card-body">
-            <h2 className="card-title">TF-E</h2>
-            <p>SME summary</p>
-          </div>
-        </div> */}
       </div>
     </div>
   );
