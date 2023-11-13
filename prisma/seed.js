@@ -1,6 +1,7 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
+// equipment_table
 const unitIdentificationNumber = ['WSXXXX'];
 const linNumber = ["C05002", "C05036", "C05054", "C05055", "C18378", "E05008", "G07461", "G11966", "G18358", "G36237", "G74711", "G75200", "H00586", "J00697", "L69080", "L70538", "M09009", "M39263", "M39331", "M92362", "M92841", "N96248", "R45463", "S25885", "S62898", "S70027", "S90535", "S90603", "T07679", "T34704", "T41515", "T42131", "T56383", "T61239", "T61908", "T62350", "T95555", "W98825"];
 const adminNum = ["WSXXXX-DC 003", "WSXXXX-DC 004", "WSXXXX-DC 005", "WSXXXX-DC 006", "WSXXXX-DC 007", "WSXXXX-ECS168-GS2", "WSXXXX-ECS168-GS3", "WSXXXX-ECS168-GS4", "WSXXXX-ECS168-GS5", "WSXXXX-ECS168-XX 004T2", "WSXXXX-ECS168-XX 132", "WSXXXX-ECS168-XX 253G", "WSXXXX-GEN01", "WSXXXX-GEN02", "WSXXXX-HMG 01", "WSXXXX-HMG 02", "WSXXXX-HMG 03", "WSXXXX-HMG 04", "WSXXXX-JBC-P CONTROL STAT", "WSXXXX-LG 01", "WSXXXX-LG 02", "WSXXXX-LG 03", "WSXXXX-LG 04", "WSXXXX-LMG 002", "WSXXXX-LMG 003", "WSXXXX-LMG 004", "WSXXXX-LMG 005", "WSXXXX-LMG 006", "WSXXXX-LMG 011", "WSXXXX-LMG 012", "WSXXXX-LMG 013", "WSXXXX-LMG 014", "WSXXXX-LMG 015", "WSXXXX-LMG 016", "WSXXXX-LMG 017", "WSXXXX-MDL/MEL", "WSXXXX-MK 001", "WSXXXX-MMG 001", "WSXXXX-MMG 002", "WSXXXX-MMG 003", "WSXXXX-PATS 001", "WSXXXX-RECENT LT FROM 548", "WSXXXX-RT XX", "WSXXXX-RT XXX", "WSXXXX-RT XXXX", "WSXXXX-SKL 002", "WSXXXX-SKL 003", "WSXXXX-SKL 004", "WSXXXX-SKL 006", "WSXXXX-SKL 007", "WSXXXX-SKL 008", "WSXXXX-SKL 009", "WSXXXX-SKL 010", "WSXXXX-TSV2 001", "WSXXXX-TSV2 002", "WSXXXX-TSV2 003", "WSXXXX-TSV2 004", "WSXXXX-TSV2 005", "WSXXXX-TSV3 006", "WSXXXX-TSV3 007", "WSXXXX-TSV3 008", "WSXXXX-TSV3 009", "WSXXXX-TSV3 010", "WSXXXX-XX 001", "WSXXXX-XX 001X", "WSXXXX-XX 002G", "WSXXXX-XX 002X SAIPAN", "WSXXXX-XX 004", "WSXXXX-XX 004 RT", "WSXXXX-XX 004T SAIPAN", "WSXXXX-XX 006 JBC-P", "WSXXXX-XX 006 JBC-P KGV72", "WSXXXX-XX 006 RT 001", "WSXXXX-XX 006 RT 002", "WSXXXX-XX 006-DAGR", "WSXXXX-XX 008", "WSXXXX-XX 008 RT", "WSXXXX-XX 008T", "WSXXXX-XX 008X", "WSXXXX-XX 009 RT", "WSXXXX-XX 009 SAIPAN", "WSXXXX-XX 009T", "WSXXXX-XX 101 JBC-P LOG", "WSXXXX-XX 101 RT", "WSXXXX-XX 101 SAIPAN", "WSXXXX-XX 101-DAGR", "WSXXXX-XX 111 RT", "WSXXXX-XX 111L", "WSXXXX-XX 111T", "WSXXXX-XX 112", "WSXXXX-XX 112 RT", "WSXXXX-XX 112S", "WSXXXX-XX 112X", "WSXXXX-XX 113 RT", "WSXXXX-XX 113 SAIPAN", "WSXXXX-XX 113H", "WSXXXX-XX 113X", "WSXXXX-XX 121 RT", "WSXXXX-XX 121G", "WSXXXX-XX 121L", "WSXXXX-XX 121T", "WSXXXX-XX 122 RT", "WSXXXX-XX 122 SAIPAN", "WSXXXX-XX 122S", "WSXXXX-XX 122X", "WSXXXX-XX 123 RT", "WSXXXX-XX 123 SAIPAN", "WSXXXX-XX 123H", "WSXXXX-XX 123X", "WSXXXX-XX 131G", "WSXXXX-XX 133X", "WSXXXX-XX 201", "WSXXXX-XX 201 JBC-P LOG", "WSXXXX-XX 201 RT", "WSXXXX-XX 201-DAGR", "WSXXXX-XX 241", "WSXXXX-XX 241 RT", "WSXXXX-XX 241G", "WSXXXX-XX 241L", "WSXXXX-XX 241T", "WSXXXX-XX 242", "WSXXXX-XX 242 RT", "WSXXXX-XX 242S", "WSXXXX-XX 243", "WSXXXX-XX 243 RT", "WSXXXX-XX 243H", "WSXXXX-XX 243X", "WSXXXX-XX 251", "WSXXXX-XX 251 RT", "WSXXXX-XX 251G", "WSXXXX-XX 251L-(KOR)", "WSXXXX-XX 251T", "WSXXXX-XX 252", "WSXXXX-XX 252 RT", "WSXXXX-XX 252S", "WSXXXX-XX 252X", "WSXXXX-XX 253", "WSXXXX-XX 253 RT", "WSXXXX-XX 253H", "WSXXXX-XX 253X", "WSXXXX-XX-111-(ROK)", "WSXXXX-XX-121-(ROK)"]
@@ -21,10 +22,26 @@ const remark = ['EXCESS NOT AUTHORIZED BY MTOE', 'EXCESS NOT AUTHORIZED FY21 MTO
 const count = 1;
 const dates = [new Date('2023-08-01'), new Date('2023-09-01'), new Date('2023-10-01')]
 
-const weightedDistribution = (arr, weights) => {
-
+// medical_table data
+const medical_table_data = {
+  sub_1: ['7XXXA', '7UXXA', '82XXA', '8DXXA', '8GXXA', '8HXXA', 'NDXXA', 'NDXXA', 'NFXXA', 'RRXXA', 'Z4XXA', 'Z5XXA'],
+  sub_1_upc_name: ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6', 'Unit 7', 'Unit 8', 'Unit 9', 'Unit 10', 'Unit 11', 'Unit 12'],
+  dates: [new Date('2023-01-01'), new Date('2023-05-01'), new Date('2023-08-01')],
+  generateNumber: [
+    () => Math.random() * 40 + 200,
+    () => Math.random() * 50 + 300,
+    () => Math.random() * 20 + 100,
+    () => Math.random() * 15 + 50,
+    () => Math.random() * 15 + 70,
+    () => Math.random() * 20 + 180,
+    () => Math.random() * 10 + 12,
+    () => Math.random() * 5 + 8,
+    () => Math.random() * 12 + 30,
+    () => Math.random() * 40 + 730,
+    () => Math.random() * 200 + 1000,
+    () => Math.random() * 40 + 380,
+  ]
 }
-
 
 
 
@@ -36,33 +53,58 @@ async function main() {
     },
   });
 
-  for (let i = 0; i < 150; i++) {
-    const equipmentInsert = await prisma.mytable.create({
-      data: {
-        unitidentificationcode: unitIdentificationNumber[Math.floor(Math.random() * unitIdentificationNumber.length)],
-        linnumber: linNumber[Math.floor(Math.random() * linNumber.length)],
-        adminnum: adminNum[Math.floor(Math.random() * adminNum.length)],
-        materialdescription: materialDescription[Math.floor(Math.random() * materialDescription.length)],
-        modelnumber: modelNumber[Math.floor(Math.random() * modelNumber.length)],
-        operationalstatus: operationalStatus[Math.floor(Math.random() * operationalStatus.length)],
-        equipmentstatus: equipmentStatus[Math.floor(Math.random() * equipmentStatus.length)],
-        equipment: equipment[Math.floor(Math.random() * equipment.length)],
-        equipmentcategory: equipmentCategory[Math.floor(Math.random() * equipmentCategory.length)],
-        serialnumber: serialNumber[Math.floor(Math.random() * serialNumber.length)],
-        registrationnumber: registrationNumber[Math.floor(Math.random() * registrationNumber.length)],
-        material: material[Math.floor(Math.random() * material.length)],
-        workcenter: workCenter[Math.floor(Math.random() * workCenter.length)],
-        storagelocation: storageLocation[Math.floor(Math.random() * storageLocation.length)],
-        functionallocation: functionalLocation[Math.floor(Math.random() * functionalLocation.length)],
-        userstatus: userStatus[Math.floor(Math.random() * userStatus.length)],
-        count: 1,
-        remark: remark[Math.floor(Math.random() * remark.length)],
-        date: dates[Math.floor(Math.random() * dates.length)],
-      }
-    })
-  };
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 150; j++) {
+      const equipmentInsert = await prisma.equipment_table.create({
+        data: {
+          unitidentificationcode: unitIdentificationNumber[Math.floor(Math.random() * unitIdentificationNumber.length)],
+          linnumber: linNumber[Math.floor(Math.random() * linNumber.length)],
+          adminnum: adminNum[Math.floor(Math.random() * adminNum.length)],
+          materialdescription: materialDescription[Math.floor(Math.random() * materialDescription.length)],
+          modelnumber: modelNumber[Math.floor(Math.random() * modelNumber.length)],
+          operationalstatus: operationalStatus[Math.floor(Math.random() * operationalStatus.length)],
+          equipmentstatus: equipmentStatus[Math.floor(Math.random() * equipmentStatus.length)],
+          equipment: equipment[Math.floor(Math.random() * equipment.length)],
+          equipmentcategory: equipmentCategory[Math.floor(Math.random() * equipmentCategory.length)],
+          serialnumber: serialNumber[Math.floor(Math.random() * serialNumber.length)],
+          registrationnumber: registrationNumber[Math.floor(Math.random() * registrationNumber.length)],
+          material: material[Math.floor(Math.random() * material.length)],
+          workcenter: workCenter[Math.floor(Math.random() * workCenter.length)],
+          storagelocation: storageLocation[Math.floor(Math.random() * storageLocation.length)],
+          functionallocation: functionalLocation[Math.floor(Math.random() * functionalLocation.length)],
+          userstatus: userStatus[Math.floor(Math.random() * userStatus.length)],
+          count: 1,
+          remark: remark[Math.floor(Math.random() * remark.length)],
+          date: dates[i],
+        }
+      });
+      console.log(equipmentInsert);
+    }
+  }
 
-  const result = await prisma.$queryRaw`INSERT INTO "mytable" ("unitidentificationcode", "linnumber", "adminnum", "materialdescription", "modelnumber", "operationalstatus", "equipmentstatus", "equipment", "equipmentcategory", "serialnumber", "registrationnumber", "material", "workcenter", "storagelocation", "functionallocation", "userstatus", "count", "remark")
+  for (let j = 0; j < medical_table_data.dates.length; j++) {
+    for (let i = 0; i < medical_table_data.sub_1.length; i++) {
+      const unit_strength = medical_table_data.generateNumber[i]();
+      const medicalInsert = await prisma.medical_table.create({
+        data: {
+          sub_1: medical_table_data.sub_1[i],
+          sub_1_upc_name: medical_table_data.sub_1_upc_name[i],
+          unit_assigned_strength: unit_strength,
+          unit_medically_ready_mrc_1_2: parseInt(unit_strength * (Math.random() * 0.7), 10),
+          tpu_drc_3: parseInt(unit_strength * (Math.random() * 0.1), 10),
+          arg_drc_3: parseInt(unit_strength * (Math.random() * 0.1), 10),
+          tpu_not_mrc_3: parseInt(unit_strength * (Math.random() * 0.2), 10),
+          arg_not_drc_3: parseInt(unit_strength * (Math.random() * 0.02), 10),
+          tpu_indeterminate_mrc_4: parseInt(unit_strength * (Math.random() * 0.2), 10),
+          arg_indeterminate_mrc_4: parseInt(unit_strength * (Math.random() * 0.01), 10),
+          date: medical_table_data.dates[j],
+        }
+      });
+      console.log(medicalInsert);
+    }
+  }
+
+  const result = await prisma.$queryRaw`INSERT INTO "equipment_table" ("unitidentificationcode", "linnumber", "adminnum", "materialdescription", "modelnumber", "operationalstatus", "equipmentstatus", "equipment", "equipmentcategory", "serialnumber", "registrationnumber", "material", "workcenter", "storagelocation", "functionallocation", "userstatus", "count", "remark")
   VALUES
   ('WSXXXX','T61908','WSXXXXXX_112X','TRK_CGO_WE_M1083A1','M1083A1','NMCS','Available',1012634364,'C','BT011678BFJH','NL1CY4',14473890,'WSXXXX','DCOB','BT91012634364','AVAL_AD_ERCA_AOAP','1','EXCESS_NOT_AUTHORIZED_BY_MTOE'),
     ('WSXXXX','T41515','WSXXXX-XX 113 SAIPAN','TRK CGO 5 TON WO/W','M1083A1P2WOW','NMCS','Available',1019679209,'C','10TANHFF4HS781407','NL2QH9',15498610,'WSXXXX','DCOB','BUT1019679209','AVAL AD   ERCA',1,NULL),
@@ -210,7 +252,6 @@ async function main() {
   ('WSXXXX','G75200','WSXXXX-XX 251G','GENERATOR ST DIEE','MEP-1060 30kW',NULL,'Available',1035131899,'D','L130613399',NULL,15617718,'WSXXXX','DCOC','MA71035131899','AVAL ERCA',1,NULL),
   ('WSXXXX','T07679','WSXXXX-XX 002X SAIPAN','TRK UTIL 10000 M1097','M1097','NMCS','Available',1012644806,'C','572573','NZ2T81',13469317,'WSXXXX','DMMF','BBM1012644806','AVAL AD   ERCA AOAP',1,'EXCESS NOT AUTHORIZED FY21 MTOE 4 OH / 3 AUTH');`
   console.log(test1);
-  console.log(result);
 }
 main()
   .then(async () => {

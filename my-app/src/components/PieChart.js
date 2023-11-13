@@ -29,12 +29,10 @@ const readFile = () => {
 
 const data4 = [1, 1, 2, 3, 5, 8, 13, 21];
 
-const PieChart = ({width, height, data}) => {
-  const [help, setHelp] = useState(12);
+const PieChart = ({ width, height, data }) => {
   const svgRef = useRef();
 
   useEffect(() => {
-    console.log(data);
     const w = 500;
     const h = 500;
     const radius = Math.min(width, height) / 2;
@@ -78,17 +76,13 @@ const PieChart = ({width, height, data}) => {
       });
 
 
-  }, [height, width, data, help]);
+  }, [height, width, data]);
 
   return (
     <div>
-      <input id='csv-file' type='file' accept='text/csv' onChange={(e) => readFile(e)}/>
-      <button onClick={() => readFile()}>HELLO</button>
-      <button onClick={() => setHelp(Math.random())}>reload</button>
       <div className="ml-auto mr-auto text-center">
         <svg className="translate-x-1/2 translate-y-1/2" ref={svgRef}></svg>
       </div>
-      <div>{help}</div>
     </div>
   );
 }
