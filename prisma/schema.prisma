@@ -8,49 +8,47 @@ datasource db {
 }
 
 model equipment_table {
-  id                     Int     @id @default(autoincrement())
-  unitidentificationcode String? @db.VarChar(20)
-  linnumber              String? @db.VarChar(20)
-  adminnum               String? @db.VarChar(30)
-  materialdescription    String? @db.VarChar(40)
-  modelnumber            String? @db.VarChar(50)
-  operationalstatus      String? @db.VarChar(20)
-  equipmentstatus        String? @db.VarChar(20)
-  equipment              String? @db.VarChar(20)
-  equipmentcategory      String? @db.VarChar(20)
-  serialnumber           String? @db.VarChar(30)
-  registrationnumber     String? @db.VarChar(20)
-  material               String? @db.VarChar(30)
-  workcenter             String? @db.VarChar(20)
-  storagelocation        String? @db.VarChar(8)
-  functionallocation     String? @db.VarChar(20)
-  userstatus             String? @db.VarChar(25)
+  id                     Int       @id @default(autoincrement())
+  unitidentificationcode String?   @db.VarChar(20)
+  linnumber              String?   @db.VarChar(20)
+  adminnum               String?   @db.VarChar(30)
+  materialdescription    String?   @db.VarChar(40)
+  modelnumber            String?   @db.VarChar(50)
+  operationalstatus      String?   @db.VarChar(20)
+  equipmentstatus        String?   @db.VarChar(20)
+  equipment              String?   @db.VarChar(20)
+  equipmentcategory      String?   @db.VarChar(20)
+  serialnumber           String?   @db.VarChar(30)
+  registrationnumber     String?   @db.VarChar(20)
+  material               String?   @db.VarChar(30)
+  workcenter             String?   @db.VarChar(20)
+  storagelocation        String?   @db.VarChar(8)
+  functionallocation     String?   @db.VarChar(20)
+  userstatus             String?   @db.VarChar(25)
   count                  Int
-  remark                 String? @db.VarChar(100)
-  date                   DateTime?
+  remark                 String?   @db.VarChar(100)
+  date                   DateTime? @db.Date
 }
 
-
 model medical_table {
-  id                               Int     @id @default(autoincrement())
-  sub_1                            String? @db.VarChar(30)
-  sub_1_upc_name                   String? @db.VarChar(30)
-  unit_assigned_strength           Int
-  unit_medically_ready_mrc_1_2     Int
-  tpu_drc_3                        Int
-  arg_drc_3                        Int
-  tpu_not_mrc_3                    Int
-  arg_not_drc_3                    Int
-  tpu_indeterminate_mrc_4          Int
-  arg_indeterminate_mrc_4          Int
-  date                             DateTime?
+  id                           Int       @id @default(autoincrement())
+  sub_1                        String?   @db.VarChar(30)
+  sub_1_upc_name               String?   @db.VarChar(30)
+  unit_assigned_strength       Int
+  unit_medically_ready_mrc_1_2 Int
+  tpu_drc_3                    Int
+  arg_drc_3                    Int
+  tpu_not_mrc_3                Int
+  arg_not_drc_3                Int
+  tpu_indeterminate_mrc_4      Int
+  arg_indeterminate_mrc_4      Int
+  date                         DateTime? @db.Date
 }
 
 model test {
   id   Int     @id @default(autoincrement())
   name String? @db.VarChar(10)
 }
-
 
 model User {
   id    Int    @id @default(autoincrement())
@@ -64,4 +62,12 @@ model Post {
   published Boolean @default(true)
   authorId  Int
   author    User    @relation(fields: [authorId], references: [id])
+}
+
+model budget_table {
+  id     Int      @id @default(autoincrement())
+  type   String   @db.VarChar(50)
+  amount Decimal  @db.Decimal(10, 2)
+  date   DateTime @db.Date
+  budget Decimal  @db.Decimal(10, 2)
 }

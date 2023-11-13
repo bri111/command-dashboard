@@ -43,6 +43,31 @@ const medical_table_data = {
   ]
 }
 
+const budget_table_data = {
+  type: ['DOS Personnel Payroll:', 'RPA Appropriation:', 'RPA Mission (AT, ADT, ADOS) RPA IDT (BA) Pay', 'OMAR Appropriation:', 'OMA Appropriation:', 'OMD Appropriation:', 'OMAR FRA', 'AAFES Dividends (MWR):'],
+  amount: [
+    () => Math.random() * 9.6 + .2,
+    () => Math.random() * 10.3 + 1,
+    () => Math.random() * 4.1 + .5,
+    () => Math.random() * 8.9 + .6,
+    () => Math.random() * 2.4 + .2,
+    () => Math.random() * 3.6 + .2,
+    () => Math.random() * 3.9 + .2,
+    () => Math.random() * 0.03 + .01,
+  ],
+  dates: [2021, 2022, 2023],
+  budget: [
+    9.6 * 12,
+    10.3 * 12,
+    4.1 * 12,
+    8.9 * 12,
+    2.4 * 12,
+    3.6 * 12,
+    3.9 * 12,
+    0.03 * 12,
+  ]
+}
+
 
 
 
@@ -103,6 +128,23 @@ async function main() {
       console.log(medicalInsert);
     }
   }
+
+  for (let k = 0; k < budget_table_data.type.length; k++) {
+    for (let i = 0; i < budget_table_data.dates.length; i++) {
+      for (let j = 0; j < 12; j++) {
+        const budgetInsert = await prisma.budget_table.create({
+          data: {
+            type: budget_table_data.type[k],
+            amount: budget_table_data.amount[k]().toFixed(2),
+            date: new Date(budget_table_data.dates[i], j, 1),
+            budget: budget_table_data.budget[k].toFixed(2)
+          }
+        });
+        console.log(budgetInsert);
+      }
+    }
+  }
+
 
   const result = await prisma.$queryRaw`INSERT INTO "equipment_table" ("unitidentificationcode", "linnumber", "adminnum", "materialdescription", "modelnumber", "operationalstatus", "equipmentstatus", "equipment", "equipmentcategory", "serialnumber", "registrationnumber", "material", "workcenter", "storagelocation", "functionallocation", "userstatus", "count", "remark")
   VALUES
