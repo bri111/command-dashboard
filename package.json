@@ -2,7 +2,11 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.2",
-    "@prisma/client": "^5.5.2"
+    "@prisma/client": "^5.5.2",
+    "chart.js": "^4.4.0",
+    "chartjs-chart-geo": "^4.2.7",
+    "react-chartjs-2": "^5.2.0",
+    "react-simple-maps": "^3.0.0"
   },
   "devDependencies": {
     "daisyui": "^3.9.2",
