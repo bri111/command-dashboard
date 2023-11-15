@@ -17,8 +17,6 @@ let csvData = [];
 const PieChart = ({ width, height, data }) => {
   const svgRef = useRef();
 
-
-
   const data1 = {
     labels: data.map(e => e.name),
     datasets: [

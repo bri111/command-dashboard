@@ -27,7 +27,7 @@ const Sidebar = () => {
         {
           name: 'CG',
           href: 'cg',
-          target: '_self',
+          target: '_self'
         },
         {
           name: 'DRU CDR',
@@ -114,6 +114,22 @@ const Sidebar = () => {
         }]
     },
   ]
+
+  const cgOptions = {
+    name: 'CG', href: '/dashboard/mission/cg', current: segment === 'cg', subcategory: [
+      {
+        name: 'CG_G1',
+        href: 'cg-g1',
+        target: '_self'
+      },
+      {
+        name: 'CG_G4',
+        href: 'cg-g4',
+        target: '_self'
+      },
+    ]
+  }
+
   const [isActive, setIsActive] = useState("dashboard");
   console.log(segment)
 
@@ -150,7 +166,7 @@ const Sidebar = () => {
           }
         </ul>
         <ChevronDoubleLeftIcon className={classNames(expand ? "rotate-0" : "rotate-180", "h-8 w-8 transition-all duration-500")} onClick={() => { setExpand(!expand); closeCheckboxes(expand) }} />
-        
+
       </nav>
       {/*</div>*/}
     </div>
