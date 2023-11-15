@@ -31,12 +31,13 @@ export const CG_G1 = () => {
 
   return (
     <div className="container h-screen">
-      <div className="px-4 flex flex-row justify-start">
+      <div className="p-4 flex flex-row justify-start">
         <TabButton
           selectTab={() => handleTabChange("openJobs")}
           active={tab === "openJobs"}
         >
-          {" "}Open Jobs{" "}
+          {/* {" "}Open Jobs{" "} */}
+          <a target="_blank" href="https://www.usajobs.gov/" rel="noopener noreferrer">Open Jobs</a>
         </TabButton>
         <TabButton
           selectTab={() => handleTabChange("strengthReport")}

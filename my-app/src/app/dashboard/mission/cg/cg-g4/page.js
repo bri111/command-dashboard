@@ -1,12 +1,14 @@
+'use client'
+
 import React from 'react';
 import PieChart from '@/components/PieChart';
-import prisma from '@/modules/db';
+// import prisma from '@/modules/db';
 import LineChart from '@/components/LineChart';
 import GeoMap from '@/components/GeoMap';
 
-const CG_G4 = async () => {
+const CG_G4 = async ({data}) => {
   
-  const data = await prisma.equipment_table.findMany();
+  // const data = await prisma.equipment_table.findMany();
 
   let dates = []
   data.forEach((e) => {
@@ -53,7 +55,7 @@ const CG_G4 = async () => {
       <div className="row">
         <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
           <div className="card-body">
-            <PieChart width={400} height={400} data={parseData(data)[3]} />
+            <PieChart width={600} height={600} data={parseData(data)[3]} />
           </div>
         </div>
         <div className="card card-side bg-base-100 shadow-xl h-full m-2">

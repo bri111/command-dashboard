@@ -7,13 +7,16 @@ import TabButton from '@/components/TabButton';
 //CG page imports
 import { CG_G1 } from '@/app/dashboard/mission/cg/cg-g1/page';
 import { CG_G8 } from '@/app/dashboard/mission/cg/cg-g8/page';
-import { CG_Medical } from '@/app/dashboard/mission/cg/cg-medical/page';
+// import { CG_Medical } from '@/app/dashboard/mission/cg/cg-medical/page';
+import CG_G4 from '@/app/dashboard/mission/cg/cg-g4/page';
 
 const classNames = (...className) => {
   return className.filter(Boolean).join(' ');
 }
 
-const CG_TabSystem = () => {
+const CG_TabSystem = ({ data }) => {
+
+  // console.log(data);
 
   const CG_TABS = [
     {
@@ -29,7 +32,7 @@ const CG_TabSystem = () => {
     {
       title: "G4",
       id: "g4",
-      content: (""),
+      content: (<CG_G4 data={data} />),
     },
     {
       title: "G8",
@@ -39,7 +42,7 @@ const CG_TabSystem = () => {
     {
       title: "Medical",
       id: "medical",
-      content: (<CG_Medical />),
+      content: (""),
     },
   ]
 
@@ -71,7 +74,8 @@ const CG_TabSystem = () => {
           selectTab={() => handleTabChange("g4")}
           active={tab === "g4"}
         >
-          <Link key="g4" href="/dashboard/mission/cg/cg-g4" target="_self"> G4 </Link>
+          {" "}G4{" "}
+          {/* <Link key="g4" href="/dashboard/mission/cg/cg-g4" target="_self"> G4 </Link> */}
         </TabButton>
         <TabButton
           selectTab={() => handleTabChange("g8")}
@@ -83,17 +87,13 @@ const CG_TabSystem = () => {
           selectTab={() => handleTabChange("medical")}
           active={tab === "medical"}
         >
-          {" "}Medical{" "}
+          <Link key="g4" href="/dashboard/mission/cg/cg-medical" target="_self"> CG Medical </Link>
         </TabButton>
       </div>
       <div className="row">
-        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-          <div className="card-body">
-            <h2 className="card-title">
-              {CG_TABS.find((t) => t.id === tab).content}
-            </h2>
-          </div>
-        </div>
+        <h2 className="card-title">
+          {CG_TABS.find((t) => t.id === tab).content}
+        </h2>
       </div>
     </div>
   );

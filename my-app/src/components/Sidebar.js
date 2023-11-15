@@ -114,6 +114,22 @@ const Sidebar = () => {
         }]
     },
   ]
+
+  const cgOptions = {
+    name: 'CG', href: '/dashboard/mission/cg', current: segment === 'cg', subcategory: [
+      {
+        name: 'CG_G1',
+        href: 'cg-g1',
+        target: '_self'
+      },
+      {
+        name: 'CG_G4',
+        href: 'cg-g4',
+        target: '_self'
+      },
+    ]
+  }
+
   const [isActive, setIsActive] = useState("dashboard");
   console.log(segment)
 
