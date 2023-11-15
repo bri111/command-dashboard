@@ -27,7 +27,7 @@ const Sidebar = () => {
         {
           name: 'CG',
           href: 'cg',
-          target: '_self',
+          target: '_self'
         },
         {
           name: 'DRU CDR',
@@ -150,7 +150,7 @@ const Sidebar = () => {
           }
         </ul>
         <ChevronDoubleLeftIcon className={classNames(expand ? "rotate-0" : "rotate-180", "h-8 w-8 transition-all duration-500")} onClick={() => { setExpand(!expand); closeCheckboxes(expand) }} />
-        
+
       </nav>
       {/*</div>*/}
     </div>
