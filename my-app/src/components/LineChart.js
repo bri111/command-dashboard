@@ -88,11 +88,9 @@ const data1 = {
 
 
   return (
-    <div>
-      <div className="ml-auto mr-auto text-center">
-            <div className="w-1/2">
-              <Line data={data1} options={options}/>
-            </div>
+    <div className="ml-auto mr-auto text-center">
+      <div className="w-1/2">
+        <Line data={data1} options={options}/>
       </div>
     </div>
   );
