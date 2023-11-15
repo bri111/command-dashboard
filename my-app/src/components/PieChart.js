@@ -12,6 +12,7 @@ let csvData = [];
 
 const readFile = () => {
   const file = document.getElementById('csv-file').files[0];
+  console.log(typeof file)
   const reader = new FileReader();
   console.log('wow');
   console.log(typeof file);
@@ -20,34 +21,18 @@ const readFile = () => {
     console.log('loaded');
     const rows = reader.result.split('\r\n');
     const split = rows.map(e => e.split(new RegExp(',(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))')));
-    console.log(split);
+    // console.log(split);
+    console.log(Array.from(new Set(split.map(e => e[17]))));
     csvData = split;
   }
 }
-const data2 = [
-  {jeff: 20},
-  {joe: 20},
-  {alice: 20},
-  {lop: 40},
-]
-
-var data3 = [
-  { "value": 1, "property": "p1" },
-  { "value": 2, "property": "p2" },
-  { "value": 3, "property": "p3" },
-  { "value": 4, "property": "p4" },
-  { "value": 5, "property": "p5" },
-  { "value": 6, "property": "p6" }
-]
 
 const data4 = [1, 1, 2, 3, 5, 8, 13, 21];
 
-const PieChart = ({width, height, data}) => {
-  const [help, setHelp] = useState(12);
+const PieChart = ({ width, height, data }) => {
   const svgRef = useRef();
 
   useEffect(() => {
-    console.log(data);
     const w = 500;
     const h = 500;
     const radius = Math.min(width, height) / 2;
@@ -68,12 +53,10 @@ const PieChart = ({width, height, data}) => {
       .attr('fill', d => color(d.value))
       .style('opacity', 0.7)
       .on('mouseover', (e, i) => {
-        console.log('who');
         d3.select(this).transition()
           .style('opacity', '.2').duration('50');
       })
       .on('mouseout', (e, i) => {
-        console.log('exit');
         d3.select(this).transition()
           .attr('opacity', '1').duration('50');
       })
@@ -93,16 +76,13 @@ const PieChart = ({width, height, data}) => {
       });
 
 
-  }, [height, width, data, help]);
+  }, [height, width, data]);
 
   return (
     <div>
-      <input id='csv-file' type='file' accept='text/csv' onChange={(e) => readFile(e)}/>
-      <button onClick={() => setHelp(Math.random())}>reload</button>
       <div className="ml-auto mr-auto text-center">
         <svg className="translate-x-1/2 translate-y-1/2" ref={svgRef}></svg>
       </div>
-      <div>{help}</div>
     </div>
   );
 }

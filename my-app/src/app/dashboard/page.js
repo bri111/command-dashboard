@@ -8,6 +8,13 @@ const Page = async () => {
 
   const data = await prisma.mytable.findMany();
   console.log(data);
+
+  const cardInfo = [
+    {name: 'Mission', href: '/dashboard/mission'},
+    {name: 'Periodic', href: '/dashboard/periodic'},
+    {name: 'Monthly', href: '/dashboard/monthly'},
+  ]
+
   return (
     <div className="bg-white px-6 py-8 sm:py-4 lg:px-8 h-screen align-middle">
       <Image
