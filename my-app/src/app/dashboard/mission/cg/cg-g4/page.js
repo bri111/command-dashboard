@@ -60,11 +60,11 @@ const CG_G4 = async ({data}) => {
             <LineChart data={parseData(data)} dates={dates} />
           </div>
         </div>
-        {/* <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
+        <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
           <div className="card-body">
             <GeoMap data={parseData(data)} />
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

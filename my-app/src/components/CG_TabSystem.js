@@ -11,13 +11,11 @@ import CG_G4 from '@/app/dashboard/mission/cg/cg-g4/page';
 import CG_G8 from '@/app/dashboard/mission/cg/cg-g8/page';
 import CG_Medical from '@/app/dashboard/mission/cg/cg-medical/page';
 
-const classNames = (...className) => {
-  return className.filter(Boolean).join(' ');
-}
+// const classNames = (...className) => {
+//   return className.filter(Boolean).join(' ');
+// }
 
 const CG_TabSystem = ({ data }) => {
-
-  // console.log(data);
 
   const CG_TABS = [
     {
@@ -76,7 +74,6 @@ const CG_TabSystem = ({ data }) => {
           active={tab === "g4"}
         >
           {" "}G4{" "}
-          {/* <Link key="g4" href="/dashboard/mission/cg/cg-g4" target="_self"> G4 </Link> */}
         </TabButton>
         <TabButton
           selectTab={() => handleTabChange("g8")}
@@ -89,7 +86,6 @@ const CG_TabSystem = ({ data }) => {
           active={tab === "medical"}
         >
           {" "}Medical{" "}
-          {/* <Link key="g4" href="/dashboard/mission/cg/cg-medical" target="_self"> CG Medical </Link> */}
         </TabButton>
       </div>
       <div className="row">

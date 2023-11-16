@@ -2,11 +2,10 @@ import React from 'react';
 import prisma from '@/modules/db';
 
 import CG_TabSystem from '@/components/CG_TabSystem';
-import CgTabSystem from '@/components/CgTabSystem';
 
-const classNames = (...className) => {
-  return className.filter(Boolean).join(' ');
-}
+// const classNames = (...className) => {
+//   return className.filter(Boolean).join(' ');
+// }
 
 const Page = async () => {
 
@@ -20,7 +19,6 @@ const Page = async () => {
     <div className="container h-screen pt-8">
       <div className="text-4xl text-center font-bold">CG</div>
       <CG_TabSystem data={data} />
-      {/* <CgTabSystem data={data} /> */}
     </div>
   );
 }

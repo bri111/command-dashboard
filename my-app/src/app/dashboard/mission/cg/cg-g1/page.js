@@ -3,15 +3,21 @@
 import React, { useState, useTransition } from 'react';
 import TabButton from '@/components/TabButton';
 import { CG1_Open_Jobs } from './cg-g1-open-jobs/page';
+import { CG1_Closed_Jobs } from './cg-g1-closed-jobs/page';
 import { CG1_Strength_Report } from './cg-g1-strength-report/page';
 
 export const CG_G1 = () => {
 
   const CG1_TABS = [
     {
-      title: "Open Jobs",
+      title: "Open Announcements",
       id: "openJobs",
       content: (<CG1_Open_Jobs />),
+    },
+    {
+      title: "Closed Announcements",
+      id: "closedJobs",
+      content: (<CG1_Closed_Jobs />),
     },
     {
       title: "Strength Report",
@@ -37,7 +43,13 @@ export const CG_G1 = () => {
           active={tab === "openJobs"}
         >
           {/* {" "}Open Jobs{" "} */}
-          <a target="_blank" href="https://www.usajobs.gov/" rel="noopener noreferrer">Open Jobs</a>
+          <a target="_blank" href="https://www.usajobs.gov/" rel="noopener noreferrer">Open Announcements</a>
+        </TabButton>
+        <TabButton
+          selectTab={() => handleTabChange("closedJobs")}
+          active={tab === "closedJobs"}
+        >
+          {" "}Closed Announcements{" "}
         </TabButton>
         <TabButton
           selectTab={() => handleTabChange("strengthReport")}
