@@ -2,13 +2,10 @@
 
 import React from 'react';
 import PieChart from '@/components/PieChart';
-// import prisma from '@/modules/db';
 import LineChart from '@/components/LineChart';
 import GeoMap from '@/components/GeoMap';
 
 const CG_G4 = async ({data}) => {
-  
-  // const data = await prisma.equipment_table.findMany();
 
   let dates = []
   data.forEach((e) => {
@@ -50,7 +47,7 @@ const CG_G4 = async ({data}) => {
   }
 
   return (
-    <div className="container h-screen pt-12">
+    <div className="container h-screen pt-4">
       <div className="text-3xl text-center font-bold">CG G4</div>
       <div className="row">
         <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
@@ -63,11 +60,11 @@ const CG_G4 = async ({data}) => {
             <LineChart data={parseData(data)} dates={dates} />
           </div>
         </div>
-        <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
+        {/* <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
           <div className="card-body">
             <GeoMap data={parseData(data)} />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

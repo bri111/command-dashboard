@@ -5,10 +5,11 @@ import Link from 'next/link';
 import TabButton from '@/components/TabButton';
 
 //CG page imports
+
 import { CG_G1 } from '@/app/dashboard/mission/cg/cg-g1/page';
-import { CG_G8 } from '@/app/dashboard/mission/cg/cg-g8/page';
-// import { CG_Medical } from '@/app/dashboard/mission/cg/cg-medical/page';
 import CG_G4 from '@/app/dashboard/mission/cg/cg-g4/page';
+import CG_G8 from '@/app/dashboard/mission/cg/cg-g8/page';
+import CG_Medical from '@/app/dashboard/mission/cg/cg-medical/page';
 
 const classNames = (...className) => {
   return className.filter(Boolean).join(' ');
@@ -32,17 +33,17 @@ const CG_TabSystem = ({ data }) => {
     {
       title: "G4",
       id: "g4",
-      content: (<CG_G4 data={data} />),
+      content: (<CG_G4 data={data.equipmentData} />),
     },
     {
       title: "G8",
       id: "g8",
-      content: (<CG_G8 />),
+      content: (<CG_G8 data={data.budgetData}/>),
     },
     {
       title: "Medical",
       id: "medical",
-      content: (""),
+      content: (<CG_Medical data={data.medicalData} />),
     },
   ]
 
@@ -87,7 +88,8 @@ const CG_TabSystem = ({ data }) => {
           selectTab={() => handleTabChange("medical")}
           active={tab === "medical"}
         >
-          <Link key="g4" href="/dashboard/mission/cg/cg-medical" target="_self"> CG Medical </Link>
+          {" "}Medical{" "}
+          {/* <Link key="g4" href="/dashboard/mission/cg/cg-medical" target="_self"> CG Medical </Link> */}
         </TabButton>
       </div>
       <div className="row">
