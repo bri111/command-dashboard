@@ -1,51 +1,62 @@
 import React from 'react'
 
 export const CG1_Open_Jobs = () => {
+
+  const openJobArr = [
+    {
+      title: "Supervisory Staff Administrator",
+      id: "ssa",
+      openDate: "11/04/23",
+      closeDate: "11/24/23",
+      link: "https://www.usajobs.gov/job/758827000",
+    },
+    {
+      title: "Deputy Director",
+      id: "dd",
+      openDate: "11/22/23",
+      closeDate: "11/27/23",
+      link: "https://www.usajobs.gov/job/761976000",
+    },
+  ]
+
   return (
     <div className="container h-screen">
       <div className="text-2xl text-center">Open Announcements</div>
       <div className='container'>
         <div className="row">
+
           <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
-            <div className="card-body">
-              <h2 className="card-title">
-                Job 1
+            <div className="card-body flex">
+              <h2 className="card-title justify-start">
+                <a target="_blank" href={openJobArr[0].link} rel="noopener noreferrer"> {openJobArr[0].title} </a>
               </h2>
-              Open on 10/2/22
+              <div className="card-actions justify-start">
+                <div>
+                  Opened on: {openJobArr[0].openDate}
+                </div>
+                <div>
+                  Closed on: {openJobArr[0].closeDate}
+                </div>
+              </div>
             </div>
           </div>
           <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
-            <div className="card-body">
-              <h2 className="card-title">
-                Job 2
+            <div className="card-body flex">
+              <h2 className="card-title justify-start">
+                <a target="_blank" href={openJobArr[1].link} rel="noopener noreferrer"> {openJobArr[1].title} </a>
               </h2>
-              Open on 10/2/23
+              <div className="card-actions justify-start">
+                <div>
+                  Open Date: {openJobArr[1].openDate}
+                </div>
+                <div>
+                  Close Date: {openJobArr[1].closeDate}
+                </div>
+              </div>
             </div>
           </div>
-          <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
-            <div className="card-body">
-              <h2 className="card-title">
-                Job 3
-              </h2>
-              Open on 10/22/23
-            </div>
-          </div>
-          <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
-            <div className="card-body">
-              <h2 className="card-title">
-                Job 4
-              </h2>
-              Open on 11/2/23
-            </div>
-          </div>
-          <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">
-            <div className="card-body">
-              <h2 className="card-title">
-                Job 5
-              </h2>
-              Open on 11/12/23
-            </div>
-          </div>
+
+
         </div>
       </div>
     </div>

@@ -52,72 +52,28 @@ const Page = () => {
     <div className="container h-screen pt-8">
       <div className="text-4xl text-center font-bold py-4">Mission Driven</div>
       <div className="row">
-          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-            <div className="card-body">
-              <h2 className="card-title">CG</h2>
-              <p>A nice summary</p>
-            </div>
+        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+          <div className="card-body">
+            <h2 className="card-title">CG</h2>
+            <p>A nice summary</p>
           </div>
-          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-            <div className="card-body">
-              <h2 className="card-title">SME</h2>
-              <p>SME summary</p>
-            </div>
+        </div>
+        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+          <div className="card-body">
+            <h2 className="card-title">SME</h2>
+            <p>SME summary</p>
           </div>
-          <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
-            <div className="card-body">
-              <h2 className="card-title">TF-E</h2>
-              <p>TF-E summary</p>
-            </div>
+        </div>
+        <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
+          <div className="card-body">
+            <h2 className="card-title">TF-E</h2>
+            <p>TF-E summary</p>
           </div>
+        </div>
       </div>
       <div className="row mt-5">
-        {/*<table className="table">*/}
-        {/*  <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">*/}
-        {/*  <tr>*/}
-        {/*    {tableStuff.header.map((e, index) => (*/}
-        {/*      <th key={e} scope="col" className={"px-6 py3 text-center"}>{e}</th>*/}
-        {/*    ))}*/}
-        {/*  </tr>*/}
-        {/*  </thead>*/}
-        {/*  <tbody>*/}
-        {/*  {tableStuff.row.map((row, index) => (*/}
-        {/*    <tr key={row} className={classNames(index % 2 === 0 ? "bg-gray-400" : "bg-gray-200",  "border-b dark:bg-gray-800 dark:border-gray-700 text-center text-black")}>*/}
-        {/*      {row.map((rowStuff) => (*/}
-        {/*        <td key={rowStuff}>{rowStuff}</td>*/}
-        {/*      ))}*/}
-        {/*    </tr>*/}
-        {/*  ))}*/}
-        {/*  </tbody>*/}
-        {/*</table>*/}
-
       </div>
     </div>
-    // <div className="bg-white px-6 py-24 sm:py-32 lg:px-8 h-screen">
-    //   <div className="mx-auto max-w2xl text-center">
-    //     Mission
-    //     <table className="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400">
-    //       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-    //       <tr>
-    //         {tableStuff.header.map((e, index) => (
-    //           <th key={e} scope="col" className={"px-6 py3 text-center"}>{e}</th>
-    //         ))}
-    //       </tr>
-    //       </thead>
-    //       <tbody>
-    //       {tableStuff.row.map((row, index) => (
-    //         <tr key={row} className={classNames(index % 2 === 0 ? "bg-gray-400" : "bg-gray-200",  "border-b dark:bg-gray-800 dark:border-gray-700 text-center text-black")}>
-    //           {row.map((rowStuff) => (
-    //             <td key={rowStuff}>{rowStuff}</td>
-    //           ))}
-    //
-    //         </tr>
-    //       ))}
-    //       </tbody>
-    //     </table>
-    //
-    //   </div>
-    // </div>
   );
 }
 
