@@ -7,6 +7,8 @@ import TabButton from '@/components/TabButton';
 //CG page imports
 
 import { CG_G1 } from '@/app/dashboard/mission/cg/cg-g1/page';
+// import Page from '@/app/dashboard/mission/dru-cdr/page';
+import G4 from '@/app/dashboard/mission/cg/g4/page';
 import CG_G4 from '@/app/dashboard/mission/cg/cg-g4/page';
 import CG_G8 from '@/app/dashboard/mission/cg/cg-g8/page';
 import CG_Medical from '@/app/dashboard/mission/cg/cg-medical/page';
@@ -31,7 +33,8 @@ const CG_TabSystem = ({ data }) => {
     {
       title: "G4",
       id: "g4",
-      content: (<CG_G4 data={data.equipmentData} />),
+      // content: (<CG_G4 data={data.equipmentData} />),
+      content: (<G4 data={data.equipmentData} />),
     },
     {
       title: "G8",
