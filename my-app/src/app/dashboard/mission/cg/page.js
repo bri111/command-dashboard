@@ -3,14 +3,17 @@ import prisma from '@/modules/db';
 
 import CG_TabSystem from '@/components/CG_TabSystem';
 
-const classNames = (...className) => {
-  return className.filter(Boolean).join(' ');
-}
+// const classNames = (...className) => {
+//   return className.filter(Boolean).join(' ');
+// }
 
 const Page = async () => {
 
-  const data = await prisma.equipment_table.findMany();
-  // console.log(data);
+  const data = {
+    equipmentData: await prisma.equipment_table.findMany(),
+    medicalData: await prisma.medical_table.findMany(),
+    budgetData: await prisma.budget_table.findMany(),
+  }
 
   return (
     <div className="container h-screen pt-8">
