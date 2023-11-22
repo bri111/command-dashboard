@@ -13,6 +13,13 @@ export const CG1_Closed_Jobs = () => {
       closedDate: "11/21/23",
       completeInterviews: "N",
     },
+    {
+      title: "Army Reserve Administrator",
+      id: "ara",
+      openedDate: "11/09/23",
+      closedDate: "11/21/23",
+      completeInterviews: "Y",
+    },
   ]
 
   return (
@@ -26,9 +33,10 @@ export const CG1_Closed_Jobs = () => {
                 {closedJobsArr[0].title}
               </h2>
               <div className="card-actions justify-start">
-                Open on: {closedJobsArr[0].openedDate} {" "}
-                Closed on: {closedJobsArr[0].closedDate} {" "}
-                Interviews completed: {closedJobsArr[0].completeInterviews}
+                Open on: {closedJobsArr[0].openedDate} {" "} <br></br>
+                Closed on: {closedJobsArr[0].closedDate} {" "} <br></br>
+                Interviews completed: {closedJobsArr[0].completeInterviews}{" "} <br></br>
+                Days since opened: 12
               </div>
             </div>
           </div>
@@ -37,7 +45,12 @@ export const CG1_Closed_Jobs = () => {
               <h2 className="card-title">
                 Job 2
               </h2>
-              Open on 10/2/23
+              <div className="card-actions justify-start">
+                Open on: {closedJobsArr[1].openedDate} {" "} <br></br>
+                Closed on: {closedJobsArr[1].closedDate} {" "} <br></br>
+                Interviews completed: {closedJobsArr[1].completeInterviews} {" "} <br></br>
+                Days since opened: 12
+              </div>
             </div>
           </div>
         </div>

@@ -32,10 +32,7 @@ export const CG1_Open_Jobs = () => {
               </h2>
               <div className="card-actions justify-start">
                 <div>
-                  Opened on: {openJobArr[0].openDate}
-                </div>
-                <div>
-                  Closed on: {openJobArr[0].closeDate}
+                  Valid through: {openJobArr[0].openDate} - {openJobArr[0].closeDate}
                 </div>
               </div>
             </div>
@@ -46,11 +43,8 @@ export const CG1_Open_Jobs = () => {
                 <a target="_blank" href={openJobArr[1].link} rel="noopener noreferrer"> {openJobArr[1].title} </a>
               </h2>
               <div className="card-actions justify-start">
-                <div>
-                  Open Date: {openJobArr[1].openDate}
-                </div>
-                <div>
-                  Close Date: {openJobArr[1].closeDate}
+              <div>
+                  Valid through: {openJobArr[1].openDate} - {openJobArr[1].closeDate}
                 </div>
               </div>
             </div>
