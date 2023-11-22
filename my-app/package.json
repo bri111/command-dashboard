@@ -11,7 +11,10 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "autoprefixer": "10.4.15",
+    "bingmaps-react": "^1.2.10",
     "chart.js": "^4.4.0",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "core-js": "^3.33.3",
     "d3": "^7.8.5",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
@@ -20,6 +23,8 @@
     "papaparse": "^5.4.1",
     "postcss": "8.4.29",
     "react": "18.2.0",
+    "react-azure-maps": "^1.0.0",
+    "react-bingmaps": "^3.6.1",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3"

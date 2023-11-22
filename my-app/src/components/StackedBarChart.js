@@ -10,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   CategoryScale,
@@ -23,9 +24,18 @@ ChartJS.register(
 const StackedBarChart = ({data}) => {
   const options = {
     plugins: {
+      datalabels: {
+        formatter: (value, context) => (context.datasetIndex == 2) ? `${((context.chart.data.datasets.map(e => e.data[context.dataIndex])[0] / context.chart.data.datasets.map(e => e.data[context.dataIndex]).reduce((e, a) => e + a)) * 100).toFixed(2)}%` : ``,
+        color: '#FF4069',
+        font: {
+          size: 20,
+        },
+        anchor: 'end',
+        align: 'top',
+      },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart - Stacked',
+        text: 'Unit Strength',
       },
     },
     responsive: true,
@@ -64,8 +74,7 @@ const StackedBarChart = ({data}) => {
 
   return (
     <div>
-      <Bar data={data1} options={options} />
-
+      <Bar data={data1} options={options} plugins={[ChartDataLabels]} />
     </div>
   )
 }

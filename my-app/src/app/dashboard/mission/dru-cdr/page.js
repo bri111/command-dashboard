@@ -4,10 +4,12 @@ import prisma from '@/modules/db';
 import LineChart from '@/components/LineChart';
 import GeoMap from '@/components/GeoMap';
 import StackedBarChart from '@/components/StackedBarChart';
+import BudgetLineChart from '@/components/BudgetLineChart';
 
 const Page = async () => {
   const data = await prisma.equipment_table.findMany();
   const medicalData = await prisma.medical_table.findMany();
+  const budgetData = await prisma.budget_table.findMany();
 
   let dates = []
   data.forEach((e) => {
@@ -67,6 +69,14 @@ const Page = async () => {
     return tmp3;
 
   }
+  const parseBudgetData = (data) => {
+    let arr = []
+    while (data.length > 0) {
+      arr.push(data.splice(0, 36));
+    }
+    return arr;
+  }
+  console.log(parseBudgetData(budgetData));
 
 
   return (
@@ -78,6 +88,7 @@ const Page = async () => {
         <LineChart data={parseData(data)} dates={dates}/>
         <GeoMap data={parseData(data)} />
         <StackedBarChart data={parseMedicalData(medicalData)[2]}/>
+        <BudgetLineChart data={parseBudgetData(budgetData)} />
       </div>
       </div>
   );

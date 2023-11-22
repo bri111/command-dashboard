@@ -29,7 +29,7 @@ ChartJS.register(
 );
 
 
-const LineChart = ({ width, height, data, dates }) => {
+const BudgetLineChart = ({ width, height, data, dates }) => {
 const options = {
   responsive: true,
   interaction: {
@@ -40,7 +40,7 @@ const options = {
   plugins: {
     title: {
       display: true,
-      text: 'Budget trends',
+      text: 'Equipment Status Trends',
     },
   },
   scales: {
@@ -92,4 +92,4 @@ const data1 = {
   );
 }
 
-export default LineChart;
+export default BudgetLineChart;

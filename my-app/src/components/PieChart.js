@@ -8,6 +8,8 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import * as d3 from 'd3';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Colors } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
 
@@ -29,14 +31,32 @@ const PieChart = ({ width, height, data }) => {
   };
   const options = {
     maintainAspectRatio: false,
-    aspectRatio: 1,
+    layout: {
+      padding: {
+        top: 50,
+        bottom: 50,
+        left: 50,
+        right: 50,
+      },
+    },
+    plugins: {
+      datalabels: {
+        formatter: (value) => `${((value / 150) * 100).toFixed(2)}%`,
+        color: 'black',
+        font: {
+          size: 20,
+        },
+        anchor: 'end',
+        align: 'end',
+      }
+    }
   };
 
   return (
     <div>
       <div className="ml-auto mr-auto text-center">
             <div className="w-1/2">
-              <Pie data={data1} width={width} height={height}/>
+              <Pie data={data1} options={options} plugins={[ChartDataLabels]} height={height} widht={width}/>
             </div>
       </div>
     </div>
