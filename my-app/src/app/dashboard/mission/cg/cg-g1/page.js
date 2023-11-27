@@ -5,6 +5,7 @@ import TabButton from '@/components/TabButton';
 import { CG1_Open_Jobs } from './cg-g1-open-jobs/page';
 import { CG1_Closed_Jobs } from './cg-g1-closed-jobs/page';
 import { CG1_Strength_Report } from './cg-g1-strength-report/page';
+import { CG1_Archived_Jobs } from './cg-g1-archived-jobs/page';
 
 export const CG_G1 = () => {
 
@@ -20,13 +21,18 @@ export const CG_G1 = () => {
       content: (<CG1_Closed_Jobs />),
     },
     {
+      title: "Archived Announcements",
+      id: "archivedAnnouncements",
+      content: (<CG1_Archived_Jobs />),
+    },
+    {
       title: "Strength Report",
       id: "strengthReport",
       content: (<CG1_Strength_Report />),
     },
   ]
 
-  const [tab, setTab] = useState("openJobs");
+  const [tab, setTab] = useState("strengthReport");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -38,6 +44,12 @@ export const CG_G1 = () => {
   return (
     <div className="container h-screen">
       <div className="p-4 flex flex-row justify-start">
+        <TabButton
+          selectTab={() => handleTabChange("strengthReport")}
+          active={tab === "strengthReport"}
+        >
+          {" "}Strength Report{" "}
+        </TabButton>
         <TabButton
           selectTab={() => handleTabChange("openJobs")}
           active={tab === "openJobs"}
@@ -52,10 +64,10 @@ export const CG_G1 = () => {
           {" "}Closed Announcements{" "}
         </TabButton>
         <TabButton
-          selectTab={() => handleTabChange("strengthReport")}
-          active={tab === "strengthReport"}
+          selectTab={() => handleTabChange("archivedAnnouncements")}
+          active={tab === "archivedAnnouncements"}
         >
-          {" "}Strength Report{" "}
+          {" "}Archived Announcements{" "}
         </TabButton>
       </div>
       <div className="row">
