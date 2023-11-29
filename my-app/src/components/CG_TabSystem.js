@@ -3,6 +3,7 @@
 import React, { useState, useTransition } from 'react';
 import Link from 'next/link';
 import TabButton from '@/components/TabButton';
+import Footer from './Footer';
 
 //CG page imports
 import { CG_G1 } from '@/app/dashboard/mission/cg/cg-g1/page';
@@ -18,7 +19,14 @@ const CG_TabSystem = ({ data }) => {
     {
       title: "CG Main",
       id: "main",
-      content: (<p>Main</p>),
+      content: (
+        <div className='container h-screen'> 
+          <div className='text-3xl text-center'>
+            Favorites
+            <Footer />
+          </div>
+        </div>
+      ),
     },
     {
       title: "G1",
@@ -34,7 +42,7 @@ const CG_TabSystem = ({ data }) => {
     {
       title: "G8",
       id: "g8",
-      content: (<CG_G8 data={data.budgetData}/>),
+      content: (<CG_G8 data={data.budgetData} />),
     },
     {
       title: "Medical",
@@ -53,43 +61,45 @@ const CG_TabSystem = ({ data }) => {
   };
 
   return (
-    <div className="container h-screen pt-8 px-4">
-      <div className="px-4 flex flex-row justify-start mt-8">
-        <TabButton
-          selectTab={() => handleTabChange("main")}
-          active={tab === "main"}
-        >
-          {" "}CG Main{" "}
-        </TabButton>
-        <TabButton
-          selectTab={() => handleTabChange("g1")}
-          active={tab === "g1"}
-        >
-          {" "}G1{" "}
-        </TabButton>
-        <TabButton
-          selectTab={() => handleTabChange("g4")}
-          active={tab === "g4"}
-        >
-          {" "}G4{" "}
-        </TabButton>
-        <TabButton
-          selectTab={() => handleTabChange("g8")}
-          active={tab === "g8"}
-        >
-          {" "}G8{" "}
-        </TabButton>
-        <TabButton
-          selectTab={() => handleTabChange("medical")}
-          active={tab === "medical"}
-        >
-          {" "}Medical{" "}
-        </TabButton>
-      </div>
-      <div className="row">
-        <h2 className="card-title">
-          {CG_TABS.find((t) => t.id === tab).content}
-        </h2>
+    <div className='h-screen'>
+      <div className="container pt-8 px-4">
+        <div className="px-4 flex flex-row justify-start mt-8">
+          <TabButton
+            selectTab={() => handleTabChange("main")}
+            active={tab === "main"}
+          >
+            {" "}CG Main{" "}
+          </TabButton>
+          <TabButton
+            selectTab={() => handleTabChange("g1")}
+            active={tab === "g1"}
+          >
+            {" "}G1{" "}
+          </TabButton>
+          <TabButton
+            selectTab={() => handleTabChange("g4")}
+            active={tab === "g4"}
+          >
+            {" "}G4{" "}
+          </TabButton>
+          <TabButton
+            selectTab={() => handleTabChange("g8")}
+            active={tab === "g8"}
+          >
+            {" "}G8{" "}
+          </TabButton>
+          <TabButton
+            selectTab={() => handleTabChange("medical")}
+            active={tab === "medical"}
+          >
+            {" "}Medical{" "}
+          </TabButton>
+        </div>
+        <div className="row">
+          <h2 className="card-title">
+            {CG_TABS.find((t) => t.id === tab).content}
+          </h2>
+        </div>
       </div>
     </div>
   );

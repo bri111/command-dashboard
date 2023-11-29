@@ -85,8 +85,8 @@ const data1 = {
 
   return (
     <div className="ml-auto mr-auto text-center">
-      <div className="w-1/2">
-        <Line data={data1} options={options}/>
+      <div className="w-full h-full">
+        <Line id='lineG4' data={data1} options={options}/>
       </div>
     </div>
   );

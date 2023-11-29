@@ -21,7 +21,6 @@ export const CG1_Open_Jobs = () => {
 
   return (
     <div className="container h-screen">
-      <div className="text-2xl text-center">Open Announcements</div>
       <div className='container'>
         <div className="row">
 

@@ -1,5 +1,6 @@
 'use client'
 
+import Footer from '@/components/Footer';
 import React, { useState, useRef, useEffect } from 'react';
 import BudgetChart from '@/components/BudgetChart';
 
@@ -33,8 +34,8 @@ const CG_G8 = async ({data}) => {
 
   return (
     <div className="container">
-      <BudgetChart data={parseBudgetData(data)} />
       <div className="text-2xl text-center"> Budget Data </div>
+      <BudgetChart data={parseBudgetData(data)} />
     </div>
   )
 }

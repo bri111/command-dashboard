@@ -55,7 +55,7 @@ const PieChart = ({ width, height, data }) => {
   return (
     <div>
       <div className="ml-auto mr-auto text-center">
-            <div className="w-1/2">
+            <div className="w-full">
               <Pie data={data1} options={options} plugins={[ChartDataLabels]} height={height} widht={width}/>
             </div>
       </div>
