@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 const Page = async () => {
 
-  const data = {
+  const data = await {
     equipmentData: await prisma.equipment_table.findMany(),
     medicalData: await prisma.medical_table.findMany(),
     budgetData: await prisma.budget_table.findMany(),

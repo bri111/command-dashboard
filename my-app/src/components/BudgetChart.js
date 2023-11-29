@@ -23,7 +23,8 @@ ChartJS.register(
 );
 
 const BudgetChart = ({data}) => {
-  console.log(data)
+  console.log("FJDKSLFJKSL");
+  console.log(data);
   const options = {
     plugins: {
       datalabels: {

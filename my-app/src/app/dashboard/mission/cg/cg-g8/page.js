@@ -4,14 +4,14 @@ import Footer from '@/components/Footer';
 import React, { useState, useRef, useEffect } from 'react';
 import BudgetChart from '@/components/BudgetChart';
 
-const CG_G8 = async ({data}) => {
-  const parseBudgetData = (data) => {
+const CG_G8 = ({data}) => {
+  const parseBudgetData = (data2) => {
     let arr = []
+    let data = [...data2];
     while (data.length > 0) {
       arr.push(data.splice(0, 36));
     }
     arr.forEach(e => e.splice(12,24));
-    console.log(arr[0].reduce((e, a) => e.amount + a));
     let tmp = [];
     let names = Array.from(new Set(arr.map(e => e[0].type)));
     let totals = Array.from(new Set(arr.map(e => parseFloat(e[0].budget))));
