@@ -4,7 +4,7 @@ import prisma from '@/modules/db';
 import LineChart from '@/components/LineChart';
 import GeoMap from '@/components/GeoMap';
 import StackedBarChart from '@/components/StackedBarChart';
-import BudgetLineChart from '@/components/BudgetLineChart';
+import BudgetLineChart from '@/components/BudgetChart';
 
 const Page = async () => {
   const data = await prisma.equipment_table.findMany();
@@ -35,7 +35,6 @@ const Page = async () => {
       unitDate.push(units.slice(0 + (i * 12), 12 + (i * 12)))
     }
     unitNames = Array.from(new Set(units.map(e => e.sub_1_upc_name)));
-    console.log(unitDate);
 
     return unitDate ;
   }
@@ -49,7 +48,6 @@ const Page = async () => {
         dates.push(tmpDate)
       }
     });
-    console.log(dates)
 
     for (let i = 0; i < dates.length; i++) {
       const tmpResult = {}
@@ -74,9 +72,27 @@ const Page = async () => {
     while (data.length > 0) {
       arr.push(data.splice(0, 36));
     }
-    return arr;
+    arr.forEach(e => e.splice(12,24));
+    console.log(arr[0].reduce((e, a) => e.amount + a));
+    let tmp = [];
+    let names = Array.from(new Set(arr.map(e => e[0].type)));
+    let totals = Array.from(new Set(arr.map(e => parseFloat(e[0].budget))));
+    for (let i = 0; i < arr.length; i++) {
+      let total = 0;
+      for (let j = 0; j < arr[i].length; j++) {
+        console.log(arr[i][j].amount);
+        total += parseFloat(arr[i][j].amount);
+      }
+      tmp.push(total);
+    }
+    console.log(names);
+    console.log(totals);
+    return {
+      spent: tmp,
+      budget: totals,
+      names: names,
+    }
   }
-  console.log(parseBudgetData(budgetData));
 
 
   return (

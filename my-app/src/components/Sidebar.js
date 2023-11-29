@@ -5,6 +5,7 @@ import { EnvelopeOpenIcon } from '@heroicons/react/24/solid';
 import { Bars3Icon, AdjustmentsHorizontalIcon, ChartBarIcon, CalendarIcon, PaperClipIcon, ChevronDoubleLeftIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
+import { HomeIcon } from '@heroicons/react/20/solid';
 
 const classNames = (...className) => {
   return className.filter(Boolean).join(' ');
@@ -136,7 +137,12 @@ const Sidebar = () => {
   return (
     <div className={classNames(expand ? "w-1/5" : "w-12", "top-0 sticky left-0 h-screen overflow-auto flex flex-col bg-white border-r-2 shadow-2 transition-all duration-500")}>
       {/*<div className="flex flex-col gapy-y-5 overflow-y-auto bg-white px-6 pb-4 border-r-2">*/}
-      <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "pt-12 pb-6 transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
+      {
+        expand ?
+          <Link href="/dashboard" className={classNames(expand ? "scale-100" : "scale-0 max-h-0", "pt-12 pb-6 transition-all text-2xl font-bold text-center")} data-tip="HI">Commanders Dashboard</Link>
+          :
+          ''
+      }
       <nav className="flex flex-1 flex-col">
         <ul roles="list" className="flex flex-1 flex-col">
           {

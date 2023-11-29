@@ -2,6 +2,8 @@ import React from 'react';
 import db from '@/modules/db';
 import prisma from '@/modules/db';
 import Image from 'next/image';
+import BudgetChart from '@/components/BudgetChart';
+import GeoMap from '@/components/GeoMap';
 // import {Card, CardBody } from "@material-tailwind/react";
 
 const Page = async () => {
@@ -14,6 +16,8 @@ const Page = async () => {
 
   return (
     <div className="bg-white px-6 py-8 sm:py-4 lg:px-8 h-screen align-middle">
+      <GeoMap />
+      <BudgetChart data={{}} />
       <Image
         src="/9th_banner2.png"
         width={1500}

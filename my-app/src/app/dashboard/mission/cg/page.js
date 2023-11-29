@@ -8,7 +8,7 @@ const Page = async () => {
   const data = {
     equipmentData: await prisma.equipment_table.findMany(),
     medicalData: await prisma.medical_table.findMany(),
-    // budgetData: await prisma.budget_table.findMany(),
+    budgetData: await prisma.budget_table.findMany(),
   }
 
   return (
