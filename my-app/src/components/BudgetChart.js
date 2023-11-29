@@ -23,8 +23,7 @@ ChartJS.register(
 );
 
 const BudgetChart = ({data}) => {
-  console.log("FJDKSLFJKSL");
-  console.log(data);
+  // console.log(data);
   const options = {
     plugins: {
       datalabels: {
@@ -38,7 +37,7 @@ const BudgetChart = ({data}) => {
       },
       title: {
         display: true,
-        text: 'Unit Strength',
+        text: '',
       },
     },
     responsive: true,

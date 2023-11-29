@@ -36,6 +36,7 @@ const CG_G8 = ({data}) => {
     <div className="container">
       <div className="text-2xl text-center"> Budget Data </div>
       <BudgetChart data={parseBudgetData(data)} />
+      <Footer/>
     </div>
   )
 }
