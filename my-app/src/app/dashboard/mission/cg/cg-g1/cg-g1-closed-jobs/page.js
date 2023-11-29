@@ -24,7 +24,6 @@ export const CG1_Closed_Jobs = () => {
 
   return (
     <div className="container h-screen">
-      <div className="text-2xl text-center">Closed Announcements</div>
       <div className='container'>
         <div className="row">
           <div className="card card-side bg-base-100 shadow-xl h-1/2 m-2">

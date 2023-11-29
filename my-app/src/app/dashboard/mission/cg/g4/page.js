@@ -4,6 +4,7 @@ import React from 'react';
 import PieChart from '@/components/PieChart';
 import LineChart from '@/components/LineChart';
 import GeoMap from '@/components/GeoMap';
+import Footer from '@/components/Footer';
 
 const G4 = async ({ data }) => {
 
@@ -48,19 +49,38 @@ const G4 = async ({ data }) => {
     }
 
     return (
-        <div className="container h-screen p-4">
+        <div className="h-screen py-4">
             <div className="text-center font-bold text-3xl">Equipment Data</div>
-            <div className="row">
-                <div className="my-4">
-                    <PieChart width={400} height={400} data={parseData(data)[3]} />
+            <div className='grid grid-cols-2 gap-3'>
+                <div className="card card-side shadow-xl">
+                    <div className="card-body flex">
+                        <div className="justify-end rating">
+                            <input type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                        </div>
+                        <PieChart width={400} height={400} data={parseData(data)[3]} />
+                    </div>
                 </div>
-                <div className="my-4">
-                    <LineChart data={parseData(data)} dates={dates} />
+                {/* <div className="m-8">
+                        <LineChart data={parseData(data)} dates={dates} />
+                    </div> */}
+                <div className="card card-side shadow-xl">
+                    <div className="card-body flex">
+                        <div className="justify-end rating">
+                            <input type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                        </div>
+                        <LineChart data={parseData(data)} dates={dates} />
+                    </div>
                 </div>
-                <div className="my-4">
-                    <GeoMap data={parseData(data)} />
+                <div className="card card-side shadow-xl">
+                    <div className="card-body flex">
+                        <div className="justify-end rating">
+                            <input type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                        </div>
+                        <GeoMap data={parseData(data)} />
+                    </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import StackedBarChart from '@/components/StackedBarChart';
+import Footer from '@/components/Footer';
 
 const CG_Medical = async ({data}) => {
 
@@ -26,6 +27,7 @@ const CG_Medical = async ({data}) => {
     <div className="container h-screen pt-4 px-8">
       <div className="text-3xl text-center font-bold">Medical Readiness</div>
       <StackedBarChart data={parseMedicalData(data)[2]}/>
+      <Footer/>
     </div>
   )
 }

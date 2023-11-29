@@ -6,6 +6,7 @@ import { CG1_Open_Jobs } from './cg-g1-open-jobs/page';
 import { CG1_Closed_Jobs } from './cg-g1-closed-jobs/page';
 import { CG1_Strength_Report } from './cg-g1-strength-report/page';
 import { CG1_Archived_Jobs } from './cg-g1-archived-jobs/page';
+import Footer from '@/components/Footer';
 
 export const CG_G1 = () => {
 
@@ -73,6 +74,7 @@ export const CG_G1 = () => {
       <div className="row">
         {CG1_TABS.find((t) => t.id === tab).content}
       </div>
+      <Footer/>
     </div>
   )
 }

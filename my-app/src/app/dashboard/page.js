@@ -7,13 +7,14 @@ import Image from 'next/image';
 const Page = async () => {
 
   const cardInfo = [
-    {name: 'Mission', href: '/dashboard/mission'},
-    {name: 'Periodic', href: '/dashboard/periodic'},
-    {name: 'Monthly', href: '/dashboard/monthly'},
+    { name: 'Mission', href: '/dashboard/mission' },
+    { name: 'Periodic', href: '/dashboard/periodic' },
+    { name: 'Monthly', href: '/dashboard/monthly' },
   ]
 
   return (
-    <div className="bg-white px-6 py-8 sm:py-4 lg:px-8 h-screen align-middle">
+    // <div className="bg-white px-2 py-8 sm:py-4 lg:px-6 h-screen align-middle">
+    <div className="bg-white h-screen align-middle">
       <Image
         src="/9th_banner2.png"
         width={1500}

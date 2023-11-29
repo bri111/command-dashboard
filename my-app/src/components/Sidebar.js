@@ -165,7 +165,9 @@ const Sidebar = () => {
             ))
           }
         </ul>
-        <img className="pl-20" src="/9th MSC.png" alt="image description" width="200" height="200"></img>
+        <div className="flex justify-center items-center">
+          <img src="/9th MSC.png" alt="image description" width="200" height="200"></img>
+        </div>
         <ChevronDoubleLeftIcon className={classNames(expand ? "rotate-0" : "rotate-180", "h-8 w-8 transition-all duration-500")} onClick={() => { setExpand(!expand); closeCheckboxes(expand) }} />
 
       </nav>
