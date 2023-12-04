@@ -9,15 +9,15 @@ export const CG1_Closed_Jobs = () => {
     {
       title: "Army Reserve Administrator",
       id: "ara",
-      openedDate: "11/09/23",
-      closedDate: "11/21/23",
+      openDate: "11/04/23",
+      closeDate: "11/24/23",
       completeInterviews: 0,
     },
     {
       title: "Army Reserve Administrator",
       id: "ara",
-      openedDate: "11/09/23",
-      closedDate: "11/21/23",
+      openDate: "11/22/23",
+      closeDate: "11/27/23",
       completeInterviews: 0,
     },
   ]
@@ -47,7 +47,7 @@ export const CG1_Closed_Jobs = () => {
                     </div>
                   </div>
                   <div>
-                    Days since opened: 12
+                    Days since opened: 32
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export const CG1_Closed_Jobs = () => {
                     </div>
                   </div>
                   <div>
-                    Days since opened: 12
+                    Days since opened: 14
                   </div>
                 </div>
               </div>

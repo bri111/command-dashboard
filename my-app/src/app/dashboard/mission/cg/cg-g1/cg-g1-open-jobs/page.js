@@ -6,15 +6,15 @@ export const CG1_Open_Jobs = () => {
     {
       title: "Supervisory Staff Administrator",
       id: "ssa",
-      openDate: "11/04/23",
-      closeDate: "11/24/23",
+      openDate: "11/29/23",
+      closeDate: "12/08/23",
       link: "https://www.usajobs.gov/job/758827000",
     },
     {
       title: "Deputy Director",
       id: "dd",
-      openDate: "11/22/23",
-      closeDate: "11/27/23",
+      openDate: "12/01/23",
+      closeDate: "12/12/23",
       link: "https://www.usajobs.gov/job/761976000",
     },
   ]
