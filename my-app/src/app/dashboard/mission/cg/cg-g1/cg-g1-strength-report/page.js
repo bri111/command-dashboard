@@ -1,5 +1,6 @@
 import React from 'react'
 import BarChart from '@/components/BarChart'
+import { getCookies, setCookie, deleteCookie, getCookie } from 'cookies-next';
 
 export const CG1_Strength_Report = () => {
 
@@ -210,7 +211,7 @@ export const CG1_Strength_Report = () => {
         <div className="card card-side shadow-xl">
           <div className="card-body flex">
             <div className="justify-end rating">
-              <input type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+              <input onClick={() => setCookie('strengthChart', getCookie('strengthChart') !== 'true')} type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
             </div>
             <BarChart data={data23} />
           </div>
@@ -218,7 +219,7 @@ export const CG1_Strength_Report = () => {
         <div className="card card-side shadow-xl">
           <div className="card-body flex">
             <div className="justify-end rating">
-              <input type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+              <input onClick={() => setCookie('strengthChart', getCookie('strengthChart') !== 'true')} type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
             </div>
             <BarChart data={data22} />
           </div>
@@ -226,7 +227,7 @@ export const CG1_Strength_Report = () => {
         <div className="card card-side shadow-xl">
           <div className="card-body flex">
             <div className="justify-end rating">
-              <input type="checkbox" name="rating-2" className="mask mask-star-2" />
+              <input onClick={() => setCookie('strengthChart', getCookie('strengthChart') !== 'true')} type="checkbox" name="rating-2" className="mask mask-star-2" />
             </div>
             <BarChart data={data21} />
           </div>

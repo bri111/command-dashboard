@@ -16,11 +16,13 @@ import CG_Medical from '@/app/dashboard/mission/cg/cg-medical/page';
 import PieChart from '@/components/PieChart';
 import GeoMap from '@/components/GeoMap';
 import LineChart from '@/components/LineChart';
+import { CG1_Strength_Report } from '@/app/dashboard/mission/cg/cg-g1/cg-g1-strength-report/page';
 
 const CG_TabSystem = ({ data }) => {
   const [pie, setPie] = useState(false);
   const [map, setMap] = useState(false);
   const [line, setLine] = useState(false);
+  const [strength, setStrength] = useState(false);
   useEffect(() => {
     let cookie = getCookie('pieChart');
     setPie(cookie);
@@ -28,6 +30,8 @@ const CG_TabSystem = ({ data }) => {
     setMap(cookie)
     cookie = getCookie('lineChart');
     setLine(cookie)
+    cookie = getCookie('strengthChart');
+    setStrength(cookie)
   }, [pie, map, line])
 
   let dates = []
@@ -82,6 +86,10 @@ const CG_TabSystem = ({ data }) => {
             }
             {line === 'true' ?
               <LineChart data={parseData(data.equipmentData)} dates={dates} /> : ''
+            }
+            {
+              strength === 'true' ?
+                <CG1_Strength_Report /> : ''
             }
             <Footer />
           </div>
