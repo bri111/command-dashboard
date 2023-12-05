@@ -5,7 +5,8 @@ import PieChart from '@/components/PieChart';
 import LineChart from '@/components/LineChart';
 import GeoMap from '@/components/GeoMap';
 
-const CG_G4 = async ({data}) => {
+
+const CG_G4 = ({data}) => {
 
   let dates = []
   data.forEach((e) => {
@@ -26,7 +27,6 @@ const CG_G4 = async ({data}) => {
         dates.push(tmpDate)
       }
     });
-    // console.log(dates)
 
     for (let i = 0; i < dates.length; i++) {
       const tmpResult = {}

@@ -1,12 +1,15 @@
 'use client'
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PieChart from '@/components/PieChart';
 import LineChart from '@/components/LineChart';
 import GeoMap from '@/components/GeoMap';
 import Footer from '@/components/Footer';
+import { getCookies, setCookie, deleteCookie, getCookie } from 'cookies-next';
 
 const G4 = async ({ data }) => {
+  const [pieCookie, setPieCookie] = useState(getCookie('pieChart'));
+  console.log(pieCookie);
 
     let dates = []
     data.forEach((e) => {
@@ -27,7 +30,6 @@ const G4 = async ({ data }) => {
                 dates.push(tmpDate)
             }
         });
-        console.log(dates)
 
         for (let i = 0; i < dates.length; i++) {
             const tmpResult = {}
@@ -55,18 +57,15 @@ const G4 = async ({ data }) => {
                 <div className="card card-side shadow-xl">
                     <div className="card-body flex">
                         <div className="justify-end rating">
-                            <input type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                            <input onClick={() => setCookie('pieChart', getCookie('pieChart') !== 'true')} type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
                         </div>
                         <PieChart width={400} height={400} data={parseData(data)[3]} />
                     </div>
                 </div>
-                {/* <div className="m-8">
-                        <LineChart data={parseData(data)} dates={dates} />
-                    </div> */}
                 <div className="card card-side shadow-xl">
                     <div className="card-body flex">
                         <div className="justify-end rating">
-                            <input type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                            <input onClick={() => setCookie('lineChart', getCookie('lineChart') !== 'true')} type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
                         </div>
                         <LineChart data={parseData(data)} dates={dates} />
                     </div>
@@ -74,7 +73,7 @@ const G4 = async ({ data }) => {
                 <div className="card card-side shadow-xl">
                     <div className="card-body flex">
                         <div className="justify-end rating">
-                            <input type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
+                            <input onClick={() => setCookie('mapChart', getCookie('mapChart') !== 'true')} type="checkbox" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
                         </div>
                         <GeoMap data={parseData(data)} />
                     </div>

@@ -1,9 +1,10 @@
 'use client'
 
-import React, { useState, useTransition } from 'react';
+import React, { useState, useTransition, useEffect } from 'react';
 import Link from 'next/link';
 import TabButton from '@/components/TabButton';
 import Footer from './Footer';
+import { getCookies, setCookie, deleteCookie, getCookie } from 'cookies-next';
 
 //CG page imports
 import { CG_G1 } from '@/app/dashboard/mission/cg/cg-g1/page';
@@ -12,17 +13,76 @@ import G4 from '@/app/dashboard/mission/cg/g4/page';
 // import CG_G4 from '@/app/dashboard/mission/cg/cg-g4/page';
 import CG_G8 from '@/app/dashboard/mission/cg/cg-g8/page';
 import CG_Medical from '@/app/dashboard/mission/cg/cg-medical/page';
+import PieChart from '@/components/PieChart';
+import GeoMap from '@/components/GeoMap';
+import LineChart from '@/components/LineChart';
 
 const CG_TabSystem = ({ data }) => {
+  const [pie, setPie] = useState(false);
+  const [map, setMap] = useState(false);
+  const [line, setLine] = useState(false);
+  useEffect(() => {
+    let cookie = getCookie('pieChart');
+    setPie(cookie);
+    cookie = getCookie('mapChart');
+    setMap(cookie)
+    cookie = getCookie('lineChart');
+    setLine(cookie)
+  }, [pie, map, line])
+
+  let dates = []
+  data.equipmentData.forEach((e) => {
+    const tmpDate = e.date ? e.date.toISOString() : new Date('2023-11-01').toISOString();
+    if (!dates.includes(tmpDate)) {
+      dates.push(tmpDate)
+    }
+  });
+
+  const parseData = (data) => {
+    let tmp3 = [];
+    let dates = []
+    data.forEach((e) => {
+      const tmpDate = e.date ? e.date.toISOString() : new Date('2023-11-01').toISOString();
+      if (!dates.includes(tmpDate)) {
+        dates.push(tmpDate)
+      }
+    });
+
+    for (let i = 0; i < dates.length; i++) {
+      const tmpResult = {}
+      for (let j = 0 + (i * 150); j < 150 + (i * 150); j++) {
+        tmpResult[data[j].operationalstatus] ? tmpResult[data[j].operationalstatus] += 1 : tmpResult[data[j].operationalstatus] = 1;
+      }
+      tmp3.push(tmpResult);
+    }
+    for (let i = 0; i < tmp3.length; i++) {
+      tmp3[i] = Object.entries(tmp3[i]).map(e => {
+        return {
+          name: e[0],
+          value: e[1],
+        };
+      });
+    }
+    return tmp3;
+  }
 
   const CG_TABS = [
     {
       title: "CG Main",
       id: "main",
       content: (
-        <div className='container h-screen'> 
+        <div className='container h-screen'>
           <div className='text-3xl text-center'>
             Favorites
+            {pie === 'true' ?
+              <PieChart data={parseData(data.equipmentData)[3]} width={400} height={400} /> : ''
+            }
+            {map === 'true' ?
+              <GeoMap data={{}} /> : ''
+            }
+            {line === 'true' ?
+              <LineChart data={parseData(data.equipmentData)} dates={dates} /> : ''
+            }
             <Footer />
           </div>
         </div>
