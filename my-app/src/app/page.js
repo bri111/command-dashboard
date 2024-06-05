@@ -3,10 +3,10 @@ import PieChart from '@/components/PieChart';
 
 export default function Home() {
   const data = [
-    {name: "mark", value: 150},
-    {name: "jeff", value: 200},
-    {name: "larry", value: 100},
-    {name: "perry", value: 230},
+    {name: "mark", value: 50},
+    {name: "jeff", value: 50},
+    {name: "larry", value: 50},
+    {name: "perry", value: 50},
   ];
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
