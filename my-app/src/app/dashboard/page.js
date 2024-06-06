@@ -7,7 +7,7 @@ import GeoMap from '@/components/GeoMap';
 import Footer from '@/components/Footer';
 // import {Card, CardBody } from "@material-tailwind/react";
 
-const Page = async () => {
+const Dashboard = async () => {
 
   const cardInfo = [
     { name: 'Mission', href: '/dashboard/mission' },
@@ -76,4 +76,4 @@ const Page = async () => {
   );
 }
 
-export default Page;
+export default Dashboard;

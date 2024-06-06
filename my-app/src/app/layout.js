@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Sidebar from '@/components/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,4 +15,17 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>{children}</body>
     </html>
   )
+}
+
+const layout = (props) => {
+  return (
+    <div>
+      <div className="flex flex-row">
+        <Sidebar />
+        <div className="flex-grow overflow-y-auto">
+          {props.children}
+        </div>
+      </div>
+    </div>
+  );
 }
