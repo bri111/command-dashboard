@@ -54,9 +54,13 @@ const Page = () => {
       <div className="row">
         <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
           <div className="card-body">
-            <h2 className="card-title">CG</h2>
-            <p>A nice summary</p>
+            <h2 className="card-title">Our Mission</h2>
+            <p>The 9th MSC, as an operational reserve in the USINDOPACOM Area of Operations, delivers key reserve component capabilities, maintains a forward posture, is prepared to rapidly mobilize, and provides command and control
+              for Homeland Defense/DSCA, enabling the Theater Army to assure allies, compete with adversaries, respond in crisis, and win in conflict.</p>
+            <h2 className="card-title">Vision</h2>
+            <p>READY to rapidly mobilize, deploy, and execute Decisive Action. Pride of the Pacific!</p>
           </div>
+          
         </div>
         <div className="card card-side bg-base-100 shadow-xl h-screen m-2">
           <div className="card-body">
